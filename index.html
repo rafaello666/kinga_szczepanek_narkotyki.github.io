@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strona 18+ | Kontrowersje, Narkotyki, Kinga Szczepanek</title>
+  <meta name="description" content="Witryna z treściami dla dorosłych, skupiająca się na materiałach Kingi Szczepanek, skandalach narkotykowych, BDSM i fetyszu.">
+
+  <!-- Podstawowe style  -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Socket.IO  -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- Google Fonts Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- PDF.js (plik .mjs) -->
+  <script src="pdfjs/pdf.mjs"></script>
+  <script>
+    // Inicjalizacja pdf.js
+    pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/pdf.worker.mjs';
+  </script>
+
+  <!-- Skrypt główny (chat, ostrzeżenie 18+, otwieranie PDF) -->
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- Ostrzeżenie 18+ -->
+  <div id="ageWarning" class="age-warning-overlay">
+    <div class="age-warning-content">
+      <h2>Ostrzeżenie 18+ – Treści BDSM / Fetish</h2>
+      <p>
+        Ta strona zawiera materiały przeznaczone wyłącznie dla osób dorosłych,<br>
+        w tym wątki kontrowersyjne, narkotyki.
+      </p>
+      <button id="confirmAge" class="btn-confirm">Mam 18 lat</button>
+      <button id="leaveSite" class="btn-leave">Opuść stronę</button>
+    </div>
+  </div>
+
+  <!-- NAGŁÓWEK / NAVBAR -->
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="logo">KingaSzczepanek.com</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#chatSection">Chat</a></li>
+        <li><a href="#docsSection">Dokumenty</a></li>
+        <li><a href="#audioSection">Audio</a></li>
+        <li><a href="#footer">Kontakt/O stronie</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO / TOP SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1>Kontrowersje i Skandale<br>Kingi Szczepanek</h1>
+      <p>
+        Poznaj zakulisowe dokumenty, nagrania i rozmowy<br>
+        dotyczące mrocznych historii w Krakowie.
+      </p>
+      <a href="#docsSection" class="btn-cta">Zobacz Dokumenty</a>
+    </div>
+  </section>
+
+  <!-- SEKCJA CHAT -->
+  <section id="chatSection" class="chat-section">
+    <h2>Chat na żywo – Dyskusje i Komentarze</h2>
+    <p class="section-desc">
+      Tutaj możesz <strong>podyskutować</strong> na temat prezentowanych materiałów.<br>
+      Funkcja chatu wymaga aktywnego połączenia z serwerem Socket.IO.
+    </p>
+
+    <div class="chat-window">
+      <div id="chatMessages" class="chat-messages">
+        <!-- Przykładowe wiadomości -->
+        <div class="message message-other">
+          <span class="message-author">Kejsi:</span>
+          <span class="message-text">
+            Masz ode mnie słodycze? 🍬
+          </span>
+        </div>
+        <div class="message message-user">
+          <span class="message-author">Ty:</span>
+          <span class="message-text">
+            Tak, mam też wino. Mam wyjebane na chujów.
+          </span>
+        </div>
+      </div>
+
+      <form id="chatForm" class="chat-form">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input"
+          placeholder="Napisz wiadomość..."
+          autocomplete="off"
+        />
+        <button type="submit" class="btn-send">Wyślij</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SEKCJA DOKUMENTY / PDF -->
+  <section id="docsSection" class="docs-section">
+    <h2>Dokumenty PDF</h2>
+    <p class="section-desc">
+      Tutaj znajdziesz pliki PDF z raportami, pismami urzędowymi<br>
+      i innymi materiałami związanymi z Kingą Szczepanek.
+    </p>
+
+    <div class="doc-item">
+      <img src="assets/images/pdf-icon.png" alt="Ikona PDF" class="doc-icon" />
+      <h3>Dokument 1: Odpowiedź szpitala w Skawinie</h3>
+      <p class="doc-desc">
+        Zawiera stanowisko macierzystego szpitala Kingi Szczepanek w sprawie doniesień narkotykowych.
+      </p>
+      <button class="btn-doc" onclick="openPDF('assets/pdf/kinga_szczepanek_odpowiedz_szpitala.pdf')">
+        Otwórz PDF
+      </button>
+    </div>
+
+    <div class="doc-item">
+      <img src="assets/images/pdf-icon.png" alt="Ikona PDF" class="doc-icon" />
+      <h3>Dokument 2: Odpowiedź Izb Lekarskich</h3>
+      <p class="doc-desc">
+        Zawiera odpowiedź Izb Lekarskich odnośnie przestępczej działalności Kingi Szczepanek.
+      </p>
+      <button class="btn-doc" onclick="openPDF('assets/pdf/kinga_szczepanek_odpowiedz_izby_lekarskiej.pdf')">
+        Otwórz PDF
+      </button>
+    </div>
+
+    <!-- Modal do wyświetlania PDF -->
+    <div id="pdfModal" class="pdf-modal">
+      <span class="close" onclick="closePDF()">&times;</span>
+      <canvas id="pdfCanvas"></canvas>
+    </div>
+  </section>
+
+  <!-- SEKCJA AUDIO -->
+  <section id="audioSection" class="audio-section">
+    <h2>Deklaracje Pani Kingi Szczepanek</h2>
+    <p class="section-desc">
+      Posłuchaj nagrań głosowych związanych z kontrowersjami wokół<br>
+      Kingi Szczepanek i historii narkotyków w Krakowie.
+    </p>
+
+    <div class="audio-player">
+      <div class="audio-item">
+        <h3>Kinga Szczepanek – Proceder Narkotykowy</h3>
+        <p class="audio-desc">
+          Wyjaśnienia na temat udziału w zorganizowanej grupie przestępczej w Krakowie.
+        </p>
+        <audio controls>
+          <source src="assets/audio/4 czerwca_wycinki_dawidek_DRAGIKINGI.mp3" type="audio/mpeg" />
+          Twoja przeglądarka nie wspiera elementu <code>audio</code>.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPKA -->
+  <footer id="footer" class="footer">
+    <div class="footer-content">
+      <p>
+        <strong>© 2025 https://szczepanek-modelki.com</strong> Wszelkie prawa zastrzeżone.<br>
+        Strona przeznaczona dla osób pełnoletnich.
+      </p>
+      <p>
+        <a href="#hero">Powrót do góry</a> | 
+        <a href="docs/regulamin.pdf" target="_blank">Regulamin</a> | 
+        <a href="docs/polityka_privacy.pdf" target="_blank">Polityka Prywatności</a>
+      </p>
+      <div class="social-media">
+        <a href="mailto:rafixks@interia.pl">Kontakt</a>
+      </div>
+      <div class="contact-form">
+        <h3>Skontaktuj się z nami</h3>
+        <form id="contactForm" action="mailto:rafixks@interia.pl" method="post" enctype="text/plain">
+          <label for="name">Imię:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="_replyto" required />
+
+          <label for="message">Wiadomość:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Wyślij</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
