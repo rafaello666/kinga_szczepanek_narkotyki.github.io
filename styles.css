@@ -1,0 +1,405 @@
+/* 
+  styles.css
+  Arkusz stylów dla "Case Study Stories – Dramatic Layout"
+  -------------------------------------------------------
+  Autor: ChatGPT
+  Przykładowy layout oparty o analizę #1
+*/
+
+/* Resetowanie podstawowych stylów przeglądarki (opcjonalnie) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Ustawienia bazowe */
+  html {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Linki - reset */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Nagłówki */
+  h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 2rem; /* Możesz dostosować */
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  /* -----------------------------------
+     HEADER - Sticky Navigation
+  -------------------------------------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px; /* Limit szerokości kontenera */
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .navbar .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffa500; /* jaskrawy pomarańcz */
+  }
+  
+  /* Emphasized Contact Button in Navigation */
+  .nav-contact-btn {
+    background-color: #ffa500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .nav-contact-btn:hover {
+    background-color: #ffbb33;
+  }
+  
+  /* Hamburger Menu (Mobile) */
+  .hamburger {
+    display: none; /* Pokażemy w media queries */
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin-bottom: 4px;
+    transition: 0.3s;
+  }
+  
+  /* -----------------------------------
+     HERO SECTION
+  -------------------------------------- */
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* wysokość okna */
+    background: url('images/hero-image.jpg') center/cover no-repeat; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Przyciemnienie obrazu */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-cta-btn {
+    display: inline-block;
+    background-color: #ffa500;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  .hero-cta-btn:hover {
+    background-color: #ffbb33;
+  }
+  
+  /* -----------------------------------
+     CASE GALLERY SECTION
+  -------------------------------------- */
+  .case-gallery {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .gallery-heading h2 {
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gallery-heading p {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Karta - część obrazkowa */
+  .card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #ccc; /* W razie gdyby nie było obrazka */
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 0.5rem;
+  }
+  
+  .card-overlay h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  /* Karta - część tekstowa */
+  .card-content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .card-btn {
+    background-color: #ffa500;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .card-btn:hover {
+    background-color: #ffbb33;
+  }
+  
+  /* -----------------------------------
+     INFO SECTION (Why These Stories Matter)
+  -------------------------------------- */
+  .info-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .info-left h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+  
+  .info-left p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .info-right img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  /* -----------------------------------
+     FOOTER SECTION
+  -------------------------------------- */
+  .site-footer {
+    background-color: #333;
+    color: #ccc;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 0 auto;
+  }
+  
+  .site-footer .footer-col h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .site-footer .footer-col p,
+  .site-footer .footer-col ul,
+  .site-footer .footer-col li {
+    font-size: 0.9rem;
+  }
+  
+  .site-footer .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .site-footer .footer-col ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .site-footer .footer-col ul li a {
+    color: #ccc;
+    transition: color 0.2s;
+  }
+  
+  .site-footer .footer-col ul li a:hover {
+    color: #ffa500;
+  }
+  
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  
+  .social-icons a img:hover {
+    opacity: 1;
+  }
+  
+  /* -----------------------------------
+     RESPONSIVE STYLES (media queries)
+  -------------------------------------- */
+  /* Mniejsze ekrany tabletowe */
+  @media screen and (max-width: 992px) {
+    .cards-container {
+      grid-template-columns: 1fr 1fr; /* 2 kolumny zamiast 3 */
+    }
+  
+    .info-section {
+      grid-template-columns: 1fr; /* jedna kolumna */
+    }
+  
+    .site-footer {
+      grid-template-columns: 1fr 1fr; /* 2 kolumny */
+    }
+  }
+  
+  /* Ekrany mobilne (max 600px) */
+  @media screen and (max-width: 600px) {
+    .nav-links {
+      display: none; /* ukrywamy desktopowe menu */
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .hero-section {
+      height: 60vh; /* nieco mniejsza wysokość na mobile */
+    }
+  
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+  
+    .cards-container {
+      grid-template-columns: 1fr; /* Jedna kolumna */
+    }
+  
+    .site-footer {
+      grid-template-columns: 1fr; /* Jedna kolumna */
+    }
+  }
+  

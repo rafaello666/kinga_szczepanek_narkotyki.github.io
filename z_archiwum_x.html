@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Podstawowe informacje -->
+  <title>Case Study Stories – Dramatic Layout</title>
+  <meta name="description" content="Odkryj inspirujące historie i case study w dramatycznym stylu, koncentrując się na opowieściach pełnych emocji i przemian." />
+
+  <!-- Favicon -->
+  <!-- Możesz użyć .ico, .png, .svg itp. – ważne, by zmienić type/href zgodnie z formatem -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Open Graph Tags -->
+  <!-- Dzięki nim, gdy ktoś udostępni stronę w mediach społecznościowych, pojawi się mini podgląd z obrazem i opisem -->
+  <meta property="og:title" content="Case Study Stories – Dramatic Layout" />
+  <meta property="og:description" content="Zanurz się w kolekcji dramatycznych case study, pełnych inspirujących historii i głębokich emocji." />
+  <meta property="og:type" content="website" />
+  <!-- Tu wstaw adres URL swojej strony (domena lub link do GitHub Pages / Netlify). Przykład: -->
+  <meta property="og:url" content="https://twoja-domena.pl" />
+  <!-- Ścieżka do obrazka reprezentującego stronę, np. hero-image. Pamiętaj, że w sieci musi być dostępny pod tym adresem -->
+  <meta property="og:image" content="https://twoja-domena.pl/images/hero-image.jpg" />
+
+  <!-- Dodaj Facebook lub inny og:locale, og:site_name, jeśli potrzebujesz więcej szczegółów. -->
+  <!-- <meta property="og:locale" content="pl_PL" /> -->
+  <!-- <meta property="og:site_name" content="Nazwa Twojej Strony" /> -->
+
+  <!-- LINK DO ARKUSZA STYLÓW -->
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <!-- HEADER (Sticky Navigation) -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">LOGO</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#" class="nav-contact-btn">Contact</a></li>
+      </ul>
+      <!-- Hamburger Menu (Mobile) -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Explore Stories That Inspire Change</h1>
+      <p>Discover dramatic case studies and unique insights.</p>
+      <a href="#" class="hero-cta-btn">Discover More</a>
+    </div>
+  </section>
+
+  <!-- GALLERY / CASE STUDY CARDS -->
+  <section class="case-gallery">
+    <div class="gallery-heading">
+      <h2>Featured Case Studies</h2>
+      <p>Explore some of our most gripping and dramatic stories.</p>
+    </div>
+    
+    <div class="cards-container">
+      <!-- CARD #1 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/gallery1.jpg" alt="Dramatic scene - case 1" />
+          <div class="card-overlay">
+            <h3>Case 1: A Story of Resilience</h3>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Short intro to the dramatic events...</p>
+          <a href="#" class="card-btn">Read More</a>
+        </div>
+      </article>
+      
+      <!-- CARD #2 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/gallery2.jpg" alt="Dramatic scene - case 2" />
+          <div class="card-overlay">
+            <h3>Case 2: Triumph Over Challenges</h3>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Short intro to the dramatic events...</p>
+          <a href="#" class="card-btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- CARD #3 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/gallery3.jpg" alt="Dramatic scene - case 3" />
+          <div class="card-overlay">
+            <h3>Case 3: The Unexpected Turn</h3>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Short intro to the dramatic events...</p>
+          <a href="#" class="card-btn">Read More</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="info-section">
+    <div class="info-left">
+      <h2>Why These Stories Matter</h2>
+      <p>
+        Each case reveals real-world examples of challenges, emotions, and 
+        transformations. These stories can offer deeper insight into human 
+        resilience and the power of change.
+      </p>
+    </div>
+    <div class="info-right">
+      <img src="images/info-graphic.jpg" alt="Infographic related to dramatic storytelling">
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="footer-col">
+      <h3>Our Brand</h3>
+      <p>Tagline or short description goes here.</p>
+    </div>
+    <div class="footer-col">
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col social-icons">
+      <a href="#" aria-label="Facebook"><img src="images/facebook-icon.png" alt="Facebook icon"></a>
+      <a href="#" aria-label="Twitter"><img src="images/twitter-icon.png" alt="Twitter icon"></a>
+      <a href="#" aria-label="Instagram"><img src="images/instagram-icon.png" alt="Instagram icon"></a>
+    </div>
+  </footer>
+
+  <!-- Twój plik script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
