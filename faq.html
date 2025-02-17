@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FAQ - Szczepanek Modelki</title>
+  <style>
+    /* Reset i podstawowe style */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?dark,abstract') no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+      margin: 0;
+      line-height: 1.5;
+      color: #fff;
+    }
+    /* Overlay dla ciemniejszego tła – poprawa czytelności */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: -1;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    .faq-item {
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      background-color: rgba(226,226,226,0.2);
+      cursor: pointer;
+      padding: 15px;
+      margin: 0;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-question:hover {
+      background-color: rgba(208,208,208,0.3);
+    }
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      font-size: 1em;
+      line-height: 1.5;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    /* Media queries dla responsywności */
+    @media (max-width: 600px) {
+      .faq-container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+      }
+      .faq-question {
+        padding: 12px;
+        font-size: 1em;
+      }
+      .faq-answer {
+        padding: 12px;
+        font-size: 0.95em;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .faq-container {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+      }
+      .faq-question {
+        padding: 10px;
+        font-size: 0.95em;
+      }
+      .faq-answer {
+        padding: 10px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="faq-container">
+    <h1>Najczęściej Zadawane Pytania (FAQ)</h1>
+    <div class="faq-item">
+      <h3 class="faq-question">Co to jest szczepanek-modelki.com?</h3>
+      <div class="faq-answer">
+        <p>Szczepanek-modelki.com to portal śledczy prezentujący dokumenty, nagrania audio oraz artykuły związane z kontrowersyjnymi sprawami medycznymi i etycznymi. Celem portalu jest dostarczanie rzetelnych informacji oraz dowodów, które można weryfikować.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">Jakie treści mogę znaleźć na stronie?</h3>
+      <div class="faq-answer">
+        <p>Na stronie znajdziesz m.in. dokumenty, nagrania audio, artykuły oraz wywiady dotyczące kontrowersyjnych zagadnień w środowisku medycznym i etycznym. Materiały są prezentowane w sposób przejrzysty, aby umożliwić weryfikację przedstawionych informacji.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">Czy informacje publikowane na stronie są rzetelne?</h3>
+      <div class="faq-answer">
+        <p>Tak, portal kładzie nacisk na rzetelność i transparentność. Prezentowane treści opierają się na sprawdzonych źródłach, a każdy materiał jest dokładnie weryfikowany, aby odbiorcy mogli podejmować świadome decyzje.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">Jak mogę się skontaktować z administracją portalu?</h3>
+      <div class="faq-answer">
+        <p>Możesz skontaktować się z nami poprzez formularz kontaktowy dostępny na stronie lub wysyłając wiadomość na adres e-mail podany w zakładce "Kontakt".</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">Czy mogę udostępniać treści z portalu?</h3>
+      <div class="faq-answer">
+        <p>Oczywiście! Zachęcamy do udostępniania treści, aby dotarły do jak najszerszego grona odbiorców. Twoje wsparcie pomaga nam nagłośnić ważne kwestie społeczne.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Skrypt do rozwijania i zwijania odpowiedzi FAQ
+    document.querySelectorAll('.faq-question').forEach(function(question) {
+      question.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
