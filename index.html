@@ -1,61 +1,543 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NL2W26CB');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Strona 18+ | Kontrowersje, Narkotyki, Kinga Szczepanek</title>
-  <meta name="description" content="Witryna z treściami dla dorosłych, skupiająca się na materiałach Kingi Szczepanek, skandalach narkotykowych, BDSM i fetyszu.">
+  <title>Portal Śledczy | Naruszenia Prawa - Doktor Kinga Szczepanek</title>
+  <meta name="description" content="Interaktywny portal dochodzeniowo-informacyjny ujawniający naruszenia prawa przez doktor Kingę Szczepanek. Dowody, dokumenty, nagrania, dyskusje oraz obowiązek informowania służb – wszystko w jednym miejscu." />
 
-  <!-- Podstawowe style  -->
-  <link rel="stylesheet" href="style.css"/>
+  <!-- Wewnętrzny CSS -->
+  <style>
+    /* RESET I PODSTAWOWE STYLE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #1a1a1a, #900C3F);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-  <!-- Socket.IO  -->
-  <script src="/socket.io/socket.io.js"></script>
+    /* MODAL DISCLAIMER */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 90%;
+      text-align: center;
+      color: #333;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+    .modal-content h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #900C3F;
+    }
+    .modal-content p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .btn-modal {
+      background: #900C3F;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-modal:hover {
+      background: #c70039;
+    }
 
-  <!-- Google Fonts Roboto -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-    rel="stylesheet"
-  />
+    /* NAWIGACJA */
+    header {
+      background: #000;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(255, 0, 0, 0.7);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+    .nav-links li {
+      margin-left: 20px;
+    }
+    .nav-links li a {
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: #c70039;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #fff;
+      margin: 4px 0;
+    }
 
-  <!-- PDF.js (plik .mjs) -->
-  <script src="pdfjs/pdf.mjs"></script>
+    /* SEKCJA HERO */
+    .hero-section {
+      background: url('https://source.unsplash.com/1600x900/?investigation,crime') no-repeat center center/cover;
+      padding: 100px 20px;
+      position: relative;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-content h1 {
+      font-size: 48px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: pulsate 2s infinite;
+    }
+    @keyframes pulsate {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .btn-cta {
+      background: #900C3F;
+      padding: 15px 30px;
+      font-size: 18px;
+      color: #fff;
+      border-radius: 50px;
+      transition: background 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+    .btn-cta:hover {
+      background: #c70039;
+      transform: scale(1.05);
+    }
+
+    /* SEKCJA ODPOWIEDZIALNOŚCI I PRAWA */
+    .responsibility-section {
+      padding: 60px 20px;
+      background: #111;
+      border-top: 4px solid #900C3F;
+      margin-bottom: 20px;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+    }
+    .responsibility-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .responsibility-section p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .responsibility-section ul {
+      margin-left: 20px;
+      list-style: disc;
+    }
+    .responsibility-section ul li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    /* SEKCJE PODSTAWOWE (DOKUMENTY, AUDIO, DYSKUSJA) */
+    .section {
+      padding: 60px 20px;
+      background: #111;
+      border-top: 4px solid #900C3F;
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .section p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .btn-section {
+      background: #900C3F;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 25px;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .btn-section:hover {
+      background: #c70039;
+    }
+    .doc-item {
+      margin-bottom: 20px;
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      text-align: left;
+    }
+    .doc-item h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .doc-item p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    /* MODAL PDF */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+    .pdf-modal iframe {
+      width: 90%;
+      height: 80%;
+      border: none;
+      background: #fff;
+    }
+    .pdf-modal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* AUDIO */
+    .audio-item {
+      background: #222;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      text-align: left;
+    }
+    .audio-item h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .audio-item p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    audio {
+      width: 100%;
+      outline: none;
+    }
+
+    /* DYSKUSJA (CHAT) */
+    .chat-container {
+      background: #222;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      text-align: left;
+    }
+    .chat-messages {
+      height: 200px;
+      overflow-y: auto;
+      background: #111;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      border: 1px solid #900C3F;
+    }
+    .chat-form {
+      display: flex;
+    }
+    .chat-form input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+    .chat-form button {
+      padding: 10px 15px;
+      border: none;
+      background: #900C3F;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .chat-form button:hover {
+      background: #c70039;
+    }
+
+    /* STOPKA */
+    footer {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+      border-top: 4px solid #900C3F;
+    }
+    footer p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #fff;
+      margin: 0 5px;
+    }
+    .contact-form {
+      margin-top: 20px;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-form form input,
+    .contact-form form textarea {
+      width: 80%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    /* RESPONSYWNOŚĆ (HAMBURGER I DODATKOWE MEDIA QUERIES) */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        z-index: 1100;
+      }
+      .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+      }
+      .hamburger {
+        display: flex;
+      }
+      /* Zmniejszenie wielkości czcionek dla sekcji hero */
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      .hero-content p {
+        font-size: 18px;
+      }
+      .btn-cta {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+      .responsibility-section h2 {
+        font-size: 28px;
+      }
+      .section h2 {
+        font-size: 28px;
+      }
+    }
+    @media (max-width: 480px) {
+      /* Dalsze skalowanie tekstu i przycisków dla bardzo małych ekranów */
+      .hero-content h1 {
+        font-size: 32px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+      .btn-cta {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+      .navbar .logo {
+        font-size: 20px;
+      }
+      .nav-links li a {
+        font-size: 14px;
+      }
+      .responsibility-section p, 
+      .section p {
+        font-size: 16px;
+      }
+      .contact-form form input,
+      .contact-form form textarea {
+        width: 90%;
+      }
+      .chat-messages {
+        height: 150px;
+      }
+    }
+    
+    /* Dodatkowa optymalizacja obrazów tła na mobile */
+    @media (max-width: 768px) {
+      .hero-section {
+        background: url('https://source.unsplash.com/800x600/?investigation,crime') no-repeat center center/cover;
+      }
+    }
+  </style>
+
+  <!-- Wewnętrzny JavaScript -->
   <script>
-    // Inicjalizacja pdf.js
-    pdfjsLib = window['pdfjs-dist/build/pdf'];
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/pdf.worker.mjs';
+    document.addEventListener("DOMContentLoaded", function() {
+      // Obsługa modala disclaimer
+      var confirmBtn = document.getElementById("confirmModal");
+      var modalOverlay = document.getElementById("modalOverlay");
+      if (confirmBtn && modalOverlay) {
+        confirmBtn.addEventListener("click", function() {
+          modalOverlay.style.display = "none";
+        });
+      }
+      
+      // Hamburger Menu
+      var hamburger = document.getElementById("hamburger");
+      var navLinks = document.getElementById("navLinks");
+      if (hamburger) {
+        hamburger.addEventListener("click", function() {
+          if (navLinks.style.display === "flex") {
+            navLinks.style.display = "none";
+          } else {
+            navLinks.style.display = "flex";
+            navLinks.style.flexDirection = "column";
+          }
+        });
+      }
+      
+      // Funkcja otwierania PDF (Modal)
+      window.openPDF = function(pdfURL) {
+        var pdfModal = document.getElementById("pdfModal");
+        var pdfFrame = document.getElementById("pdfFrame");
+        if (pdfModal && pdfFrame) {
+          pdfFrame.src = pdfURL;
+          pdfModal.style.display = "flex";
+        }
+      };
+      
+      // Funkcja zamykania PDF (Modal)
+      window.closePDF = function() {
+        var pdfModal = document.getElementById("pdfModal");
+        var pdfFrame = document.getElementById("pdfFrame");
+        if (pdfModal && pdfFrame) {
+          pdfModal.style.display = "none";
+          pdfFrame.src = "";
+        }
+      };
+      
+      // Obsługa czatu
+      var chatForm = document.getElementById("chatForm");
+      var chatInput = document.getElementById("chatInput");
+      var chatMessages = document.getElementById("chatMessages");
+      if (chatForm) {
+        chatForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          var msg = chatInput.value;
+          if (msg.trim() !== "") {
+            var msgDiv = document.createElement("div");
+            msgDiv.textContent = msg;
+            msgDiv.style.margin = "5px 0";
+            chatMessages.appendChild(msgDiv);
+            chatInput.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }
+        });
+      }
+    });
   </script>
-
-  <!-- Skrypt główny (chat, ostrzeżenie 18+, otwieranie PDF) -->
-  <script src="script.js"></script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7ZGTVW9Y0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D7ZGTVW9Y0');
+  </script>
 </head>
 <body>
-
-  <!-- Ostrzeżenie 18+ -->
-  <div id="ageWarning" class="age-warning-overlay">
-    <div class="age-warning-content">
-      <h2>Ostrzeżenie 18+ – Treści BDSM / Fetish</h2>
-      <p>
-        Ta strona zawiera materiały przeznaczone wyłącznie dla osób dorosłych,<br>
-        w tym wątki kontrowersyjne, narkotyki.
-      </p>
-      <button id="confirmAge" class="btn-confirm">Mam 18 lat</button>
-      <button id="leaveSite" class="btn-leave">Opuść stronę</button>
+ <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPTMVKWS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- MODAL DISCLAIMER -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+      <h2>Uwaga: Materiały Kontrowersyjne</h2>
+      <p>Niniejszy portal ujawnia dowody naruszeń prawa, w tym kontrowersyjne działania doktor Kingi Szczepanek. Prosimy o uważne zapoznanie się z prezentowanymi materiałami.</p>
+      <button id="confirmModal" class="btn-modal">Zapoznałem się</button>
     </div>
   </div>
-
-  <!-- NAGŁÓWEK / NAVBAR -->
-  <header class="main-header">
+  
+  <!-- NAWIGACJA -->
+  <header>
     <nav class="navbar">
-      <div class="logo">KingaSzczepanek.com</div>
+      <div class="logo">Portal Śledczy</div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#chatSection">Chat</a></li>
+        <li><a href="#hero">Strona główna</a></li>
         <li><a href="#docsSection">Dokumenty</a></li>
-        <li><a href="#audioSection">Audio</a></li>
-        <li><a href="#footer">Kontakt/O stronie</a></li>
+        <li><a href="cases/04_audio/audio.html">Audio</a></li>
+        <li><a href="#discussion">Kontakt</a></li>
+        <li><a href="cases/z_archiwum_x.html">Przypadki</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="#footer">O stronie</a></li>
       </ul>
       <div class="hamburger" id="hamburger">
         <span class="bar"></span>
@@ -64,148 +546,195 @@
       </div>
     </nav>
   </header>
-
-  <!-- HERO / TOP SECTION -->
+  
+  <!-- SEKCJA HERO -->
   <section id="hero" class="hero-section">
     <div class="hero-content">
-      <h1>Kontrowersje i Skandale<br>Kingi Szczepanek</h1>
-      <p>
-        Poznaj zakulisowe dokumenty, nagrania i rozmowy<br>
-        dotyczące mrocznych historii w Krakowie.
-      </p>
-      <a href="#docsSection" class="btn-cta">Zobacz Dokumenty</a>
+      <h1>Odkryj Prawdę: Naruszenia Prawa i Kontrowersje</h1>
+      <p>Dowody, dokumenty, nagrania – ujawniające nieetyczne i nielegalne działania doktor Kingi Szczepanek.</p>
+      <a href="cases/z_archiwum_x.html" class="btn-cta">Przejdź do spisu przypadków</a>
     </div>
   </section>
+  
+  <!-- SEKCJA ODPOWIEDZIALNOŚCI I PRAWA -->
+  <section id="responsibility" class="responsibility-section">
+    <h2>Odpowiedzialność Obywatelska i Prawo</h2>
+    <!-- Sekcja zgłaszania naruszeń prawa -->
+    <section id="zgłoszenia-naruszeń">
+      <p>
+        Każdy obywatel ma obowiązek zgłaszania naruszeń prawa do odpowiednich służb. Zgodnie z <strong>art. 240 Kodeksu postępowania karnego</strong>, osoby posiadające wiedzę o przestępstwie powinny niezwłocznie zawiadomić organy ścigania. Ponadto, <strong>art. 304 Kodeksu karnego</strong> przewiduje odpowiedzialność za zaniechanie zgłoszenia przestępstwa przez osoby pełniące funkcje publiczne. Pracownicy służby zdrowia powinni dbać o dobro pacjenta i zgłaszać nieprawidłowości.
+      </p>
+      <p>
+        Dla środowiska medycznego kluczowy jest również <strong>Kodeks Etyki Lekarskiej</strong>, który nakłada na lekarzy obowiązek dbania o dobro pacjenta oraz bezpieczeństwo publiczne. W przypadku stwierdzenia poważnych nieprawidłowości, pracownicy służby zdrowia powinni niezwłocznie poinformować odpowiednie instytucje, takie jak Policja.
+      </p>
+      <p>
+        Nie pozostawaj obojętny, następnym pacjentem może być Twój bliski, albo Ty.
+      </p>
+    </section>
 
-  <!-- SEKCJA CHAT -->
-  <section id="chatSection" class="chat-section">
-    <h2>Chat na żywo – Dyskusje i Komentarze</h2>
-    <p class="section-desc">
-      Tutaj możesz <strong>podyskutować</strong> na temat prezentowanych materiałów.<br>
-      Funkcja chatu wymaga aktywnego połączenia z serwerem Socket.IO.
-    </p>
+    <!-- Sekcja celu portalu -->
+    <section id="cel-portalu">
+      <p>
+        Aby rozjaśnić Państwu cel portalu, przybliżę postać Kingi Szczepanek oraz istotę jej działalności.
+      </p>
+    </section>
 
-    <div class="chat-window">
-      <div id="chatMessages" class="chat-messages">
-        <!-- Przykładowe wiadomości -->
-        <div class="message message-other">
-          <span class="message-author">Kejsi:</span>
-          <span class="message-text">
-            Masz ode mnie słodycze? 🍬
-          </span>
-        </div>
-        <div class="message message-user">
-          <span class="message-author">Ty:</span>
-          <span class="message-text">
-            Tak, mam też wino. Mam wyjebane na chujów.
-          </span>
-        </div>
-      </div>
+    <!-- Sekcja przedstawiająca postać dr Kingi Szczepanek -->
+    <section id="o-dr-szczepanek">
+      <h2>Kim jest dr Kinga Szczepanek? Pozornie przykładna lekarka</h2>
+      <p>
+        Dr Kinga Szczepanek to lekarz anestezjolog z wieloletnim doświadczeniem. Ukończyła studia medyczne na Uniwersytecie Jagiellońskim w Krakowie w 2000 roku i specjalizację z anestezjologii w 2008 roku, uzyskując znakomite wyniki. Pracowała m.in. w Szpitalu Uniwersyteckim w Krakowie oraz jako wykładowca akademicki, a także prowadzi własną praktykę lekarską. Na papierze jej kariera wygląda nieskazitelnie – doświadczona i ceniona lekarka z licznymi osiągnięciami.
+      </p>
+      <p>
+        Niestety, ten obiecujący obraz to tylko połowa prawdy. Równolegle z oficjalnymi osiągnięciami, pojawiła się druga, mroczna strona działalności dr Kingi Szczepanek. Zaczęły napływać niepokojące sygnały i świadectwa, które ujawniły szokujące fakty na temat jej życia prywatnego i zawodowego. To właśnie te informacje stały się impulsem do powstania niniejszego portalu śledczego.
+      </p>
+    </section>
 
+    <!-- Sekcja szokujących odkryć -->
+    <section id="szokujace-odkrycia">
+      <h2>Szokujące odkrycia: narkotyki, przemoc i kontrowersje</h2>
+      <p>
+        Moja misja ujawnienia prawdy rozpoczęła się, gdy dotarły do mnie dowody wskazujące, że dr Kinga Szczepanek była zamieszana w poważne naruszenia prawa i etyki. Co ujawniono? Poniżej najważniejsze punkty:
+      </p>
+      <p>
+        Narkotykowe podziemie: Dowody wskazują, że lekarka nie tylko zażywała nielegalne substancje, ale też brała udział w ich obrocie, a nawet produkowała je na własną rękę. Nagrania audio potwierdzają te oskarżenia – słychać na nich jej własne słowa i rozmowy, które obciążają ją w sprawach narkotykowych. W jej domu znaleziono substancje psychoaktywne; co więcej, były one przechowywane beztrosko – nawet w kuchni, w obecności jej nastoletniego dziecka. To skrajna nieodpowiedzialność i ogromne zagrożenie.
+      </p>
+    </section>
+
+    <!-- Sekcja ryzykownych zachowań i przemocy -->
+    <section id="ryzykowne-zachowania">
+      <h2>Ryzykowne zachowania i przemoc</h2>
+      <p>
+        Z dokumentacji wynika, że dr Szczepanek dopuszczała się skrajnie ryzykownych zachowań. Bywała agresywna – np. celowo zdewastowała czyjś samochód w przypływie furii. Jeszcze bardziej szokujące są relacje sugerujące, że lekarka świadomie wchodziła w niebezpieczne układy z półświatkiem. Według ujawnionych informacji, pozwalała, by ją wykorzystywano seksualnie (łącznie z wymuszonymi aktami) dla “przychylności” przestępczych partnerów w narkobiznesie.
+      </p>
+      <p>
+        Tego typu wydarzenia wykraczają poza wszelkie normy moralne – pokazują, jak daleko była gotowa się posunąć.
+      </p>
+    </section>
+
+    <!-- Sekcja zagrożenia dla pacjentów -->
+    <section id="zagrozenie-dla-pacjentow">
+      <h2>Zagrożenie dla pacjentów</h2>
+      <p>
+        Najbardziej bulwersujące w kontekście jej zawodu jest to, że dr Kinga Szczepanek potrafiła łączyć swój nałóg z pracą lekarza. Są dowody, że zażywała amfetaminę nawet w trakcie pracy, co stawia pod znakiem zapytania bezpieczeństwo pacjentów. Anestezjolog pod wpływem narkotyków to przepis na tragedię – zaburzone reakcje i ocena sytuacji mogły wprost zagrażać życiu ludzi. To już nie prywatny “wybryk”, ale realne zagrożenie dla osób, które jej zaufały jako lekarce.
+      </p>
+    </section>
+
+    <!-- Sekcja podwójnego życia -->
+    <section id="podwojne-zycie">
+      <h2>Podwójne życie i ukryte oblicze</h2>
+      <p>
+        Dodatkowym wątkiem jest życie prywatne dr Szczepanek odbiegające od wizerunku szanowanej pani doktor. Ujawniliśmy m.in. galerię fotografii o tematyce fetish/BDSM, w których sama pozuje niczym modelka. Choć dorosła osoba ma prawo do własnych upodobań, w kontekście całej sprawy te obrazy obnażają skrajną hipokryzję – przepaść między oficjalnym wizerunkiem a prywatnymi czynami.
+      </p>
+    </section>
+
+    <!-- Sekcja dowodów i dokumentacji -->
+    <section id="dowody-dokumentacja">
+      <h2>Dowody i dokumentacja</h2>
+      <p>
+        Każde powyższe oskarżenie poparte jest dowodami, które zgromadziłem i opublikowałem na tej stronie. Nic nie opiera się na plotkach czy domysłach – ujawniamy wyłącznie twarde fakty. Oto, co zapewnia wiarygodność publikowanych materiałów:
+      </p>
+      <p>
+        <strong>Nagrania audio i wideo:</strong> Na portalu udostępniam autentyczne nagrania z udziałem dr Szczepanek. Słychać na nich jej własne słowa i rozmowy, które obciążają ją w sprawach narkotykowych oraz ujawniają szokujące szczegóły z jej życia. Każdy może je odsłuchać i samodzielnie ocenić ich treść.
+      </p>
+      <p>
+        <strong>Dokumenty oficjalne:</strong> Udostępniam również oficjalne pisma instytucji (np. ze szpitala czy izby lekarskiej) związane ze sprawą. Mam np. pismo ze szpitala w Skawinie, gdzie przełożeni określają dr Szczepanek jako „kompetentną osobę” i nie widzą podstaw do zarzutów. Takie reakcje pokazują, jak trudno pociągnąć ją do odpowiedzialności, gdy instytucje bagatelizują problem. Ujawnienie takich dokumentów pozwala przedstawić pełen obraz sytuacji.
+      </p>
+      <p>
+        <strong>Zdjęcia i screenshoty:</strong> Każda historia jest opatrzona zdjęciami i zrzutami ekranu (np. z korespondencji), które weryfikują opisywane wydarzenia. Widzimy autentyczne fotografie – zarówno te z nielegalnych poczynania (np. narkotyki na stole, zdemolowane mienie), jak i z prywatnych ekscesów pani doktor.
+      </p>
+      <p>
+        <strong>Relacje świadków:</strong> Do współpracy zgłosiły się osoby, które znały dr Szczepanek lub doświadczyły konsekwencji jej czynów. Ich relacje i zeznania stanowią kolejną warstwę dowodową. Co ważne, zachęcam każdego, kto posiada dodatkowe informacje lub materiały, do kontaktu i podzielenia się nimi – im więcej faktów ujrzy światło dzienne, tym lepiej możemy zweryfikować prawdę.
+      </p>
+      <p>
+        Dzięki udostępnieniu wszystkich powyższych dowodów odbiorcy mogą samodzielnie ocenić sytuację. Transparentność jest kluczowa – niczego nie ukrywamy. Każdy, kto ma wątpliwości, może sam przeanalizować źródła. Nie trzeba wierzyć nam na słowo – dowody mówią same za siebie.
+      </p>
+    </section>
+
+    <!-- Sekcja misji portalu -->
+    <section id="misja-portalu">
+      <h2>Misja portalu: działamy w imię prawdy i bezpieczeństwa</h2>
+      <p>
+        Moim celem nie jest sensacja dla samej sensacji, ani personalny atak z pobudek prywatnej zemsty. Misją portalu jest ochrona potencjalnych ofiar i nagłośnienie skandalu, który inaczej mógłby zostać zamieciony pod dywan. Jako obywatel czuję moralny obowiązek ujawniania takich przypadków – zgodnie z <strong>art. 240 Kodeksu postępowania karnego</strong> każdy ma obowiązek zgłosić poważne przestępstwo, zwłaszcza gdy dopuszcza się go osoba zaufania publicznego (np. lekarz).
+      </p>
+      <p>
+        Niestety, pierwsze próby oficjalnego załatwienia sprawy zawiodły. Szpitale i izby lekarskie zbagatelizowały problem lub reagowały opieszale. Gdy zawodzą standardowe mechanizmy kontroli, społeczeństwo ma prawo poznać prawdę bez cenzury. Publikując te materiały, liczę na zwiększenie presji społecznej i medialnej, która zmusi odpowiednie instytucje do podjęcia działań. Chodzi o bezpieczeństwo pacjentów, o etykę w służbie zdrowia i o podstawową sprawiedliwość.
+      </p>
+      <p>
+        Chcę podkreślić: działam w interesie publicznym. Wszystkie ujawnione tu kontrowersje dotyczą kwestii, które mogą wpływać na życie i zdrowie innych ludzi.
+      </p>
+    </section>
+  </section>
+  
+  <!-- SEKCJA DOKUMENTY -->
+  <section id="docsSection" class="section">
+    <h2>Dokumenty PDF</h2>
+    <p>Oficjalne dokumenty, które prezentują stanowiska instytucji odpowiedzialnych za kontrolę przestrzegania prawa.</p>
+    <div class="doc-item">
+      <h3>Dokument 1: Odpowiedź szpitala w Skawinie</h3>
+      <p>Zawiera stanowisko szpitala w sprawie doniesień narkotykowych.</p>
+      <button class="btn-section" onclick="openPDF('assets/pdf/kinga_szczepanek_odpowiedz_szpitala.pdf')">Otwórz PDF</button>
+    </div>
+    <div class="doc-item">
+      <h3>Dokument 2: Odpowiedź Izb Lekarskich</h3>
+      <p>Zawiera stanowisko Izb Lekarskich dotyczące działalności lekarzy.</p>
+      <button class="btn-section" onclick="openPDF('assets/pdf/kinga_szczepanek_odpowiedz_izby_lekarskiej.pdf')">Otwórz PDF</button>
+    </div>
+    <!-- MODAL PDF -->
+    <div id="pdfModal" class="pdf-modal">
+      <span class="close" onclick="closePDF()">&times;</span>
+      <iframe id="pdfFrame"></iframe>
+    </div>
+  </section>
+  
+  <!-- SEKCJA AUDIO -->
+  <section id="audioSection" class="section">
+    <h2>Audio Deklaracje</h2>
+    <p>Nagrania ujawniające kontrowersje wokół działań doktor Kingi Szczepanek.</p>
+    <div class="audio-item">
+      <h3>Kinga Szczepanek – Proceder Narkotykowy</h3>
+      <p>Opis nagrania dotyczącego procederu narkotykowego.</p>
+      <audio controls>
+        <source src="assets/audio/4%20czerwca_wycinki_dawidek_DRAGIKINGI.mp3" type="audio/mpeg">
+        Twoja przeglądarka nie wspiera elementu audio.
+      </audio>
+    </div>
+  </section>
+  
+  <!-- SEKCJA DYSKUSJA (CHAT) -->
+  <section id="discussion" class="section">
+    <h2>Dyskusja i Wymiana Dowodów</h2>
+    <p>Bardzo proszę o kontakt w przypadku posiadania materiałów, nagrań lub dokumentacji, które mogą pomóc w ujawnieniu nieprawidłowości.</p>
+    <div class="chat-container">
+      <div id="chatMessages" class="chat-messages"></div>
       <form id="chatForm" class="chat-form">
-        <input
-          type="text"
-          id="chatInput"
-          class="chat-input"
-          placeholder="Napisz wiadomość..."
-          autocomplete="off"
-        />
-        <button type="submit" class="btn-send">Wyślij</button>
+        <input type="text" id="chatInput" placeholder="Wpisz swoją wiadomość..." required>
+        <button type="submit">Wyślij</button>
       </form>
     </div>
   </section>
-
-  <!-- SEKCJA DOKUMENTY / PDF -->
-  <section id="docsSection" class="docs-section">
-    <h2>Dokumenty PDF</h2>
-    <p class="section-desc">
-      Tutaj znajdziesz pliki PDF z raportami, pismami urzędowymi<br>
-      i innymi materiałami związanymi z Kingą Szczepanek.
-    </p>
-
-    <div class="doc-item">
-      <img src="assets/images/pdf-icon.png" alt="Ikona PDF" class="doc-icon" />
-      <h3>Dokument 1: Odpowiedź szpitala w Skawinie</h3>
-      <p class="doc-desc">
-        Zawiera stanowisko macierzystego szpitala Kingi Szczepanek w sprawie doniesień narkotykowych.
-      </p>
-      <button class="btn-doc" onclick="openPDF('assets/pdf/kinga_szczepanek_odpowiedz_szpitala.pdf')">
-        Otwórz PDF
-      </button>
-    </div>
-
-    <div class="doc-item">
-      <img src="assets/images/pdf-icon.png" alt="Ikona PDF" class="doc-icon" />
-      <h3>Dokument 2: Odpowiedź Izb Lekarskich</h3>
-      <p class="doc-desc">
-        Zawiera odpowiedź Izb Lekarskich odnośnie przestępczej działalności Kingi Szczepanek.
-      </p>
-      <button class="btn-doc" onclick="openPDF('assets/pdf/kinga_szczepanek_odpowiedz_izby_lekarskiej.pdf')">
-        Otwórz PDF
-      </button>
-    </div>
-
-    <!-- Modal do wyświetlania PDF -->
-    <div id="pdfModal" class="pdf-modal">
-      <span class="close" onclick="closePDF()">&times;</span>
-      <canvas id="pdfCanvas"></canvas>
-    </div>
-  </section>
-
-  <!-- SEKCJA AUDIO -->
-  <section id="audioSection" class="audio-section">
-    <h2>Deklaracje Pani Kingi Szczepanek</h2>
-    <p class="section-desc">
-      Posłuchaj nagrań głosowych związanych z kontrowersjami wokół<br>
-      Kingi Szczepanek i historii narkotyków w Krakowie.
-    </p>
-
-    <div class="audio-player">
-      <div class="audio-item">
-        <h3>Kinga Szczepanek – Proceder Narkotykowy</h3>
-        <p class="audio-desc">
-          Wyjaśnienia na temat udziału w zorganizowanej grupie przestępczej w Krakowie.
-        </p>
-        <audio controls>
-          <source src="assets/audio/4 czerwca_wycinki_dawidek_DRAGIKINGI.mp3" type="audio/mpeg" />
-          Twoja przeglądarka nie wspiera elementu <code>audio</code>.
-        </audio>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- STOPKA -->
-  <footer id="footer" class="footer">
-    <div class="footer-content">
-      <p>
-        <strong>© 2025 https://szczepanek-modelki.com</strong> Wszelkie prawa zastrzeżone.<br>
-        Strona przeznaczona dla osób pełnoletnich.
-      </p>
-      <p>
-        <a href="#hero">Powrót do góry</a> | 
-        <a href="docs/regulamin.pdf" target="_blank">Regulamin</a> | 
-        <a href="docs/polityka_privacy.pdf" target="_blank">Polityka Prywatności</a>
-      </p>
-      <div class="social-media">
-        <a href="mailto:rafixks@interia.pl">Kontakt</a>
-      </div>
-      <div class="contact-form">
-        <h3>Skontaktuj się z nami</h3>
-        <form id="contactForm" action="mailto:rafixks@interia.pl" method="post" enctype="text/plain">
-          <label for="name">Imię:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="_replyto" required />
-
-          <label for="message">Wiadomość:</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-
-          <button type="submit">Wyślij</button>
-        </form>
-      </div>
+  <footer id="footer">
+    <p><strong>© 2025 https://szczepanek-modelki.com</strong> Wszelkie prawa zastrzeżone.</p>
+    <p>
+      <a href="#hero">Powrót do góry</a> |
+      <a href="cases/02_diamonds/regulamin.html" target="_blank">Regulamin</a> |
+      <a href="cases/02_diamonds/polityka.html" target="_blank">Polityka Prywatności</a>
+    </p>
+    <p><a href="mailto:rafixks@interia.pl">Kontakt</a></p>
+    <div class="contact-form">
+      <h3>Skontaktuj się z nami</h3>
+      <form id="contactForm" action="mailto:rafixks@interia.pl" method="post" enctype="text/plain">
+        <label for="name">Imię:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_replyto" required>
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">Wyślij</button>
+      </form>
     </div>
   </footer>
-
 </body>
 </html>

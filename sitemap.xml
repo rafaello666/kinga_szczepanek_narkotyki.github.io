@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Strona główna -->
+  <url>
+    <loc>https://szczepanek-modelki.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Strona spisu przypadków -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/z_archiwum_x.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- FAQ -->
+  <url>
+    <loc>https://szczepanek-modelki.com/faq.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <!-- Case 1: Szybki samochodzik... -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/01_samochodzik/index.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Case 2: Kryształy Kingi Szczepanek -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/02_diamonds/dowody.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Case 3: La Crima Di Sangue -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/03_lacrimadisangue/index.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Case 4: Audio (nagrania) -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/04_audio/audio.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <!-- Case 5: "50 twarzy Kingi" (galeria) -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/05_wyzwiska_kultura_osobista/index.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <!-- Case 6: 4,5,6,7 czerwca -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/4567czerwca/4567czerwca.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Case 7: Zdemolowany Samochód -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/zdemolowane_auto/index.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Case 8: Włamania i kradzież danych -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/07_wlamania/index.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Polityka prywatności -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/02_diamonds/polityka.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <!-- Regulamin -->
+  <url>
+    <loc>https://szczepanek-modelki.com/cases/02_diamonds/regulamin.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+</urlset>

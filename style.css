@@ -1,528 +1,159 @@
-/* =======================================
-   style.css
-   Projekt: Strona 18+
-   =======================================
-   Najważniejsze elementy:
-   - Tło w BODY z półprzezroczystym gradientem + obraz
-   - Sekcja HERO bez własnego background
-   - Pozostałe sekcje opcjonalnie półprzezroczyste
-*/
-
-/* Zmienne CSS */
-:root {
-  --dark-bg: #0e0e0e;
-  --gray-bg: #1b1b1b;
-  --primary-text: #f1f1f1;
-  --accent-red: #e74c3c;
-  --accent-blue: #3498db;
-  --highlight: #f39c12;
-  --transition-fast: 0.2s;
-  --transition-medium: 0.4s;
-  --font-main: 'Roboto', sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-main);
-  color: var(--primary-text);
-}
-
-/* 
-==========================
- 1. BODY – GLOBALNE TŁO
-==========================
-*/
-body {
-  /* Najpierw lekki gradient przyciemniający, potem obraz */
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("assets/images/background.png") center/cover no-repeat fixed;
-  background-color: #0e0e0e; /* fallback */
-  line-height: 1.5;
-  overflow-x: hidden;
-}
-
-/* 
-==========================
- 2. OSTRZEŻENIE 18+
-==========================
-*/
-.age-warning-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(14,14,14,0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.age-warning-content {
-  background-color: var(--gray-bg);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 2rem;
-  text-align: center;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 0 30px rgba(0,0,0,0.8);
-}
-
-.age-warning-content h2 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-  color: var(--accent-red);
-}
-
-.age-warning-content p {
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
-}
-
-.btn-confirm, .btn-leave {
-  background-color: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  margin: 0.25rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color var(--transition-fast);
-}
-.btn-leave {
-  background-color: var(--accent-red);
-}
-.btn-confirm:hover {
-  background-color: #1e73a7;
-}
-.btn-leave:hover {
-  background-color: #a73225;
-}
-
-/* 
-==========================
- 3. NAGŁÓWEK / NAVBAR
-==========================
-*/
-.main-header {
-  /* Półprzezroczysta belka nagłówka, żeby widzieć tło */
-  background-color: rgba(0,0,0,0.7);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--accent-blue);
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: var(--primary-text);
-  font-weight: 500;
-  transition: color var(--transition-fast);
-}
-
-.nav-links li a:hover {
-  color: var(--accent-blue);
-}
-
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.bar {
-  height: 3px;
-  width: 25px;
-  background-color: var(--primary-text);
-  margin: 4px 0;
-  transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    right: -100%;
-    top: 60px;
-    flex-direction: column;
-    background-color: rgba(0,0,0,0.9);
-    width: 200px;
-    height: calc(100% - 60px);
-    transition: right 0.3s ease-in-out;
+/* ==========================================
+   Reset i podstawowe ustawienia
+   ========================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  .nav-links li {
-    margin: 20px 0;
-    text-align: center;
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
   }
-  .hamburger {
+  
+  /* ==========================================
+     Nagłówek i Nawigacja
+     ========================================== */
+  header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+  }
+  
+  header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
     display: flex;
-  }
-  .nav-links.active {
-    right: 0;
-  }
-  .hamburger.toggle .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.toggle .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .hamburger.toggle .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-}
-
-/* 
-==========================
- 4. HERO / TOP SECTION
-==========================
-*/
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Bez własnego tła, bo mamy background w body */
-  background: none;
-  height: 80vh;
-  text-align: center;
-  position: relative;
-}
-.hero-section::before {
-  content: none; 
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  color: #fff;
-}
-.hero-content h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-.hero-content p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
-}
-.btn-cta {
-  display: inline-block;
-  background-color: var(--accent-red);
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: background-color var(--transition-fast);
-}
-.btn-cta:hover {
-  background-color: #b93a29;
-}
-
-/* 
-==========================
- 5. SEKCJE WIDOCZNE – CZĘŚCIOWO PRZEZROCZYSTE
-==========================
-*/
-
-/* 
-   a) Chat, Dokumenty, Audio 
-*/
-.chat-section,
-.docs-section,
-.audio-section {
-  background-color: rgba(0,0,0,0.6);
-  padding: 3rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  border-radius: 4px; 
-}
-
-/* Teksty w sekcjach */
-.chat-section h2,
-.docs-section h2,
-.audio-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: var(--accent-blue);
-}
-
-.section-desc {
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-/* Chat window */
-.chat-window {
-  background-color: rgba(17,17,17,0.8);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 2rem;
-}
-
-.chat-messages {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-bottom: 1rem;
-  padding-right: 0.5rem;
-}
-.message {
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-}
-.message-author {
-  font-weight: bold;
-}
-.message-user .message-author {
-  color: var(--accent-blue);
-}
-.message-other .message-author {
-  color: var(--accent-red);
-}
-.chat-form {
-  display: flex;
-  gap: 0.5rem;
-}
-.chat-input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #444;
-  background-color: #222;
-  color: #fff;
-  border-radius: 4px;
-}
-.btn-send {
-  background-color: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color var(--transition-fast);
-}
-.btn-send:hover {
-  background-color: #1e73a7;
-}
-
-/* Dokumenty PDF */
-.doc-item {
-  background-color: rgba(17,17,17,0.8);
-  padding: 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 4px;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.doc-icon {
-  max-width: 64px;
-  margin-bottom: 1rem;
-}
-.doc-desc {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.btn-doc {
-  display: inline-block;
-  background-color: var(--accent-blue);
-  color: #fff;
-  padding: 0.5rem 0.8rem;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color var(--transition-fast);
-  cursor: pointer;
-}
-.btn-doc:hover {
-  background-color: #1e73a7;
-}
-
-/* Modal PDF */
-.pdf-modal {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-}
-.pdf-modal .close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-#pdfCanvas {
-  display: block;
-  margin: 80px auto;
-  max-width: 90%;
-  height: auto;
-  border: 2px solid #fff;
-  background-color: #fff;
-}
-
-/* Audio item */
-.audio-item {
-  background-color: rgba(17,17,17,0.8);
-  padding: 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 4px;
-}
-.audio-item h3 {
-  color: var(--accent-blue);
-  margin-bottom: 0.5rem;
-}
-.audio-desc {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  color: #ccc;
-}
-audio {
-  width: 100%;
-  max-width: 600px;
-  outline: none;
-  border-radius: 4px;
-}
-
-/* 
-==========================
- 6. STOPKA
-==========================
-*/
-.footer {
-  background-color: rgba(0,0,0,0.7);
-  padding: 2rem 1rem;
-  text-align: center;
-  color: #ccc;
-  margin-top: 2rem;
-}
-
-.footer-content p {
-  margin-bottom: 0.5rem;
-  font-size: 0.85rem;
-  line-height: 1.3;
-}
-.footer a {
-  color: var(--accent-blue);
-  text-decoration: none;
-  margin: 0 0.3rem;
-}
-.footer a:hover {
-  text-decoration: underline;
-}
-
-.social-media {
-  margin: 1rem 0;
-}
-.social-media a {
-  color: var(--accent-blue);
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-.social-media a:hover {
-  text-decoration: underline;
-}
-
-.contact-form {
-  margin-top: 2rem;
-  background-color: rgba(17,17,17,0.8);
-  padding: 1.5rem;
-  border-radius: 4px;
-}
-.contact-form h3 {
-  color: var(--accent-blue);
-  margin-bottom: 1rem;
-}
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.contact-form label {
-  text-align: left;
-  margin-bottom: 0.2rem;
-  font-weight: bold;
-}
-.contact-form input,
-.contact-form textarea {
-  padding: 0.5rem;
-  border: 1px solid #444;
-  border-radius: 4px;
-  background-color: #333;
-  color: #fff;
-}
-.contact-form button {
-  align-self: flex-start;
-  background-color: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 0.7rem 1.2rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color var(--transition-fast);
-}
-.contact-form button:hover {
-  background-color: #1e73a7;
-}
-
-/* 
-==========================
- 7. RESPONSWYWNOŚĆ
-==========================
-*/
-@media (max-width: 768px) {
-  .navbar {
     flex-wrap: wrap;
-    justify-content: center;
   }
-  .nav-links {
-    gap: 0.5rem;
+  
+  nav ul li {
+    margin-right: 15px;
   }
-
-  .hero-content h1 {
-    font-size: 1.6rem;
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
   }
-
-  .chat-window {
+  
+  nav ul li a:hover {
+    color: #900C3F;
+  }
+  
+  /* Przykładowy styl dla mobilnego hamburgera (jeśli dodasz taki element) */
+  #hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      display: none; /* Początkowo ukryte – wyświetli się po kliknięciu hamburgera */
+    }
+    #hamburger {
+      display: block;
+    }
+  }
+  
+  /* ==========================================
+     Główna treść (Main) i sekcje
+     ========================================== */
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  section h2,
+  section h3 {
+    margin-bottom: 10px;
+    color: #900C3F;
+  }
+  
+  section p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  /* ==========================================
+     Formularze
+     ========================================== */
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* ==========================================
+     Przyciski i linki przyciskowe
+     ========================================== */
+  button,
+  a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #900C3F;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover,
+  a.button:hover {
+    background-color: #c70039;
+  }
+  
+  /* ==========================================
+     Elementy multimedialne
+     ========================================== */
+  audio {
+    width: 100%;
+  }
+  
+  /* ==========================================
+     Obrazy
+     ========================================== */
+  img {
     max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
   }
-
-  .pdf-modal .close {
-    right: 20px;
-    top: 10px;
-    font-size: 30px;
+  
+  /* ==========================================
+     Stopka
+     ========================================== */
+  footer {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 0.9em;
   }
-}
+  
