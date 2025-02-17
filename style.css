@@ -1,159 +1,58 @@
-/* ==========================================
-   Reset i podstawowe ustawienia
-   ========================================== */
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
-  }
-  
-  /* ==========================================
-     Nagłówek i Nawigacja
-     ========================================== */
-  header {
-    background-color: #000;
-    color: #fff;
-    padding: 15px 20px;
-  }
-  
-  header h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  nav ul li {
-    margin-right: 15px;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #900C3F;
-  }
-  
-  /* Przykładowy styl dla mobilnego hamburgera (jeśli dodasz taki element) */
-  #hamburger {
-    display: none;
-    cursor: pointer;
-  }
-  
-  @media (max-width: 768px) {
-    nav ul {
-      flex-direction: column;
-      display: none; /* Początkowo ukryte – wyświetli się po kliknięciu hamburgera */
-    }
-    #hamburger {
-      display: block;
-    }
-  }
-  
-  /* ==========================================
-     Główna treść (Main) i sekcje
-     ========================================== */
-  main {
-    padding: 20px;
-  }
-  
-  section {
-    margin-bottom: 40px;
-  }
-  
-  section h2,
-  section h3 {
-    margin-bottom: 10px;
-    color: #900C3F;
-  }
-  
-  section p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-  }
-  
-  /* ==========================================
-     Formularze
-     ========================================== */
-  form div {
-    margin-bottom: 15px;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  form input[type="text"],
-  form input[type="email"],
-  form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* ==========================================
-     Przyciski i linki przyciskowe
-     ========================================== */
-  button,
-  a.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #900C3F;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover,
-  a.button:hover {
-    background-color: #c70039;
-  }
-  
-  /* ==========================================
-     Elementy multimedialne
-     ========================================== */
-  audio {
-    width: 100%;
-  }
-  
-  /* ==========================================
-     Obrazy
-     ========================================== */
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px 0;
-  }
-  
-  /* ==========================================
-     Stopka
-     ========================================== */
-  footer {
-    background-color: #000;
-    color: #fff;
-    padding: 15px 20px;
-    text-align: center;
-    font-size: 0.9em;
-  }
-  
+/* Ustawienia globalne */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tryb ciemny */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Nawigacja */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Sekcja Hero */
+header {
+  background: url('images/header-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Nagłówki karuzeli */
+.carousel-caption h5 {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Style Accordion */
+.accordion-button:not(.collapsed) {
+  background-color: #343a40;
+  color: #fff;
+}
+.accordion-button.collapsed {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+/* Lista dowodów */
+.list-group-item-action:hover {
+  background-color: #f0f0f0;
+}
+
+/* Stopka */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
