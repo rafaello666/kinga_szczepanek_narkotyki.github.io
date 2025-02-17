@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pijany Anestezjolog – Kinga Szczepanek</title>
+
+  <style>
+    /* Wyzerowanie podstawowych marginesów i wypełnień */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 
+      Struktura – bez 'url()', 
+      tło główne zapewnia nam <img class="pattern-background"> 
+      w BODY (patrz niżej) 
+    */
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;       /* Kolor podstawowy czcionki */
+      background: #000;  /* Rezerwowe, czarne tło (gdyby obraz się nie wczytał) */
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    /* Obraz w tle z napisami „chuj” i „fiut” (imitacja rys kluczem) */
+    .pattern-background {
+      position: fixed;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* Wypełnia cały ekran */
+      z-index: -999;         /* Daleko w tle */
+      opacity: 1;            /* Możesz zmniejszyć, by przyciemnić wzór, np. 0.5 */
+    }
+
+    /* SEKCJA HERO */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Warstwa zaciemniająca */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    /* Sam obraz hero wewnątrz sekcji */
+    .hero img.hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0; /* pod warstwą zaciemniającą */
+    }
+
+    /* NEONOWY, PULSUJĄCY TYTUŁ */
+    .hero-title {
+      position: relative;
+      z-index: 2;
+      font-size: 3rem;
+      text-align: center;
+      color: #ff0080;
+      text-shadow:
+        0 0 5px #ff0080,
+        0 0 10px #ff0080,
+        0 0 20px #ff0080,
+        0 0 40px #ff0080;
+      animation: neonPulse 2s infinite;
+    }
+    @keyframes neonPulse {
+      0%, 100% {
+        text-shadow:
+          0 0 5px #ff0080,
+          0 0 10px #ff0080,
+          0 0 20px #ff0080,
+          0 0 40px #ff0080;
+      }
+      50% {
+        text-shadow:
+          0 0 5px #ff0080,
+          0 0 15px #ff0080,
+          0 0 30px #ff0080,
+          0 0 60px #ff0080;
+      }
+    }
+
+    /* KONTENER NA CAŁĄ TREŚĆ */
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      margin: -50px auto 50px auto; /* lekko nachodzi na hero */
+      background: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    }
+
+    /* WSTĘP (INTRO) */
+    .intro {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ffcccc;
+    }
+
+    /* GALERIA ZDJĘĆ */
+    .photo-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .photo-section img {
+      width: calc(50% - 10px);
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid #ff0080;
+    }
+    .photo-section img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff0080;
+    }
+
+    /* RELACJE ŚWIADKÓW (CYTATY) */
+    .quotes {
+      margin-bottom: 30px;
+    }
+    .quote {
+      background: #ffdde6;
+      color: #000;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      position: relative;
+    }
+    .quote::before {
+      content: "„";
+      font-size: 2rem;
+      color: #ff0080;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
+    .quote::after {
+      content: "”";
+      font-size: 2rem;
+      color: #ff0080;
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+    }
+
+    /* GŁÓWNY TEKST ARTYKUŁU */
+    .main-text {
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    /* BLOK CYTATU (BLOCKQUOTE) */
+    blockquote {
+      background: #ff0000;
+      color: #fff;
+      padding: 20px;
+      position: relative;
+      margin-bottom: 30px;
+    }
+    blockquote::before {
+      content: "„";
+      font-size: 3rem;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      animation: floatQuote 2s infinite alternate ease-in-out;
+    }
+    blockquote::after {
+      content: "”";
+      font-size: 3rem;
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      animation: floatQuote 2s infinite alternate-reverse ease-in-out;
+    }
+    @keyframes floatQuote {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-5px); }
+    }
+
+    /* PRZYCISK POBRANIA DOKUMENTU */
+    .download-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #ff0080;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+      border-radius: 5px;
+    }
+    .download-btn:hover {
+      background: #cc0066;
+      transform: scale(1.05);
+    }
+
+    /* PODSUMOWANIE (CONCLUSION) */
+    .conclusion {
+      background: #0011ff;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* CTA (ZACHĘTA DO KONTAKTU) */
+    .cta {
+      background: #ff0000;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .cta a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    /* STOPKA */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: rgba(255, 0, 128, 0.2);
+      color: #fff;
+    }
+
+    /* RESPONSYWNOŚĆ */
+    @media (max-width: 768px) {
+      .photo-section img {
+        width: 100%;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .intro {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- OBRAZ W TLE Z NAPISAMI (BEZ url()) -->
+  <img 
+    src="images/pattern.jpg" 
+    alt="Powtarzający się wzór zawierający słowa 'chuj' i 'fiut', imitujący rysy kluczem" 
+    class="pattern-background"
+  />
+
+  <!-- SEKCJA HERO -->
+  <div class="hero">
+    <!-- Obraz hero (z folderu images) -->
+    <img 
+      src="images/hero.jpg" 
+      alt="Dynamiczne zdjęcie w tle, podkreślające sensacyjny charakter artykułu" 
+      class="hero-image" 
+    />
+
+    <h1 class="hero-title">Pijany Anestezjolog – Kinga Szczepanek</h1>
+  </div>
+
+  <!-- GŁÓWNY KONTENER Z TREŚCIĄ -->
+  <div class="container">
+
+    <!-- WSTĘP (INTRO) -->
+    <div class="intro">
+      <p><strong>Szokujący akt wandalizmu przez pijaną i naćpaną anestezjolog ze Skawiny</strong> Kinga Szczepanek - lekarka pod wpływem alkoholu uszkodziła z premedytacją samochód. Jazda pod wpływem i niszczenie czyjegoś mienia, agresja, groźby pozbawienia życia.</p>
+    </div>
+
+    <!-- GALERIA ZDJĘĆ (uszkodzenia auta) -->
+    <div class="photo-section">
+      <img 
+        src="images/uszkodzenia1.jpg" 
+        alt="Zarysowanie na lakierze auta zrobione kluczem" 
+      />
+      <img 
+        src="images/uszkodzenia2.jpg" 
+        alt="Głębsze wgniecenie i rysa na karoserii samochodu" 
+      />
+    </div>
+
+    <!-- RELACJE ŚWIADKÓW (QUOTES) -->
+    <div class="quotes">
+      <div class="quote">
+        „Widziałam, jak zataczała się wokół samochodu, mimo, że było już ciemno, trudno było tego nie zauważyć, wyszła z butelką, czułam ją spod mojej bramy, szczyt, od razu zadzwoniłam po policję gdy zobaczyłam, że ta pijana kobieta demoluje czyjś samochód, wykrzykiwała różne niezrozumiałe rzeczy. Była agresywna. – relacjonuje mieszkanka osiedla..”
+      </div>
+      <div class="quote">
+        „Nie wierzyłem, że to lekarz, dopóki nie zobaczyłem w dokumentach. – twierdzi inny świadek - policjant swoją drogą.”
+      </div>
+    </div>
+
+    <!-- SZCZEGÓŁY ZDARZENIA (GŁÓWNY TEKST) -->
+    <div class="main-text">
+      <p>Pewnego wieczora, mieszkanka osiedla zauważyła akt wandalizmu na niebieskim Mitsubishi zaparkowanym na osiedlowym parkingu. Na masce i drzwiach widoczne były głębokie rysy, prawdopodobnie zrobione ostrym narzędziem. Według relacji świadków, kobieta zachowywała się agresywnie i sprawiała wrażenie kompletnie pijanej.
+        Po chwili okazało się, że sprawca to anestezjolog - Kinga Szczepanek - identyfikator wypadł szanownej Pani. Niektórzy świadkowie twierdzą, że słyszeli, jak wspominała o powrocie z dyżuru i "że zabije tego skurwysyna, tak jak już kiedyś prawie się jej udało".</p>
+    </div>
+
+    <!-- BLOK CYTATU (BLOCKQUOTE) -->
+    <blockquote>
+      <p><strong>„JA PORYSOWAŁAM SAMOCHÓD – podejrzewałam, że znów będzie szedł do swingersclubu we Wro. Ponieważ wyjeżdżałam na wakacje z Pyrzowic nad ranem następnego dnia, spakowałam rzeczy i pojechałam do Wro. Jak dojechałam, to miałam w samochodzie niedokończoną butelkę cavy do wypicia na lotnisku, jak już wysiądę z samochodu. Napiłam się kilka łyków jak tam dojechałam. Wtedy dalej się ze mną kłócił i jak mnie zostawił pod tym blokiem to porysowałam mu samochód. Posiedziałam tam trochę i pojechałam do Pyrzowic. Cava ma jakieś 10% alko.”</strong></p>
+    </blockquote>
+
+    <!-- PRZYCISK POBRANIA PEŁNEGO DOKUMENTU -->
+    <div class="download-section">
+      <a class="download-btn" href="OPISYPOSZCZEGOLNYCHFOLDERoW(2).docx" download>
+        Pobierz pełny dokument oswiadczenia Kingi Szczepanek do swojego prawnika (.doc)
+      </a>
+    </div>
+
+    <!-- PODSUMOWANIE (CONCLUSION) -->
+    <div class="conclusion">
+      <p>Niszczenie cudzego mienia stanowi poważne wykroczenie, a jeśli wysokość strat przekroczy ustalony próg, może być uznane za przestępstwo. Lekarz, który powinien świecić przykładem, jest zwyczajnym kryminalistą.</p>
+    </div>
+
+    <!-- CTA (WEZWANIE DO DZIAŁANIA) -->
+    <div class="cta">
+      <p>Masz podobną historię? Daj nam znać anonimowo!</p>
+      <p>Napisz na adres: <a href="rafixks@interia.pl">email</a>
+        Co Dalej?
+        Sprawą zajmują się organy ścigania, a społeczność ma nadzieję, że anestezjolog poniesie surowe konsekwencje. Wiele osób zadaje sobie pytanie, czy był to jednorazowy incydent, czy może wierzchołek góry lodowej. My już wiemy - to babsko to chodząca pomyłka, która powinna spędzać życie w izolacji.</p>
+    
+    </div>
+
+  </div> <!-- / .container -->
+
+  <!-- STOPKA -->
+  <footer>
+    <p>© 2025 szczepanek stories – Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+</body>
+</html>
