@@ -128,7 +128,7 @@
       width: 100%;
       height: auto;
     }
-    /* Kontener dla audio – dodano widoczny obrys i tło */
+    /* Kontener dla audio – z obrysem i tłem */
     .audio-container {
       width: 100%;
       max-width: 600px;
@@ -445,7 +445,7 @@
       border-radius: 4px;
       border: 1px solid #ccc;
     }
-    /* Dodatkowy skrypt do animacji obrazów przy przewijaniu */
+    /* Responsywność */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -670,7 +670,7 @@
     </div>
   </section>
   
-  <!-- SEKCJA AUDIO -->
+  <!-- SEKCJA AUDIO (z poprawionym kontenerem) -->
   <section id="audioSection" class="section" aria-label="Nagrania Audio">
     <h2>Audio Deklaracje</h2>
     <p>Nagrania ujawniające kontrowersje wokół działań doktor Kinga Szczepanek.</p>
@@ -702,7 +702,7 @@
   
   <!-- STOPKA -->
   <footer id="footer" aria-label="Stopka">
-    <p><strong>© 2025 https://szczepanek-modelki.com</strong> Wszelkie prawa zastrzeżone.</p>
+    <p><strong>© 2025 KINGA SZCZEPANEK DRUG CASES</strong> Wszelkie prawa zastrzeżone.</p>
     <p>
       <a href="#hero">Powrót do góry</a> |
       <a href="cases/02_diamonds/regulamin.html" target="_blank">Regulamin</a> |
@@ -746,6 +746,81 @@
         }
       });
     });
+
+    // Obsługa modala disclaimer
+    document.addEventListener("DOMContentLoaded", function() {
+      var confirmBtn = document.getElementById("confirmModal");
+      var modalOverlay = document.getElementById("modalOverlay");
+      if (confirmBtn && modalOverlay) {
+        confirmBtn.addEventListener("click", function() {
+          modalOverlay.style.display = "none";
+        });
+      }
+      
+      // Hamburger Menu
+      var hamburger = document.getElementById("hamburger");
+      var navLinks = document.getElementById("navLinks");
+      if (hamburger) {
+        hamburger.addEventListener("click", function() {
+          if (navLinks.style.display === "flex") {
+            navLinks.style.display = "none";
+          } else {
+            navLinks.style.display = "flex";
+            navLinks.style.flexDirection = "column";
+          }
+        });
+      }
+    });
+
+    // Funkcja otwierania PDF (Modal)
+    function openPDF(pdfURL) {
+      var pdfModal = document.getElementById("pdfModal");
+      var pdfFrame = document.getElementById("pdfFrame");
+      if (pdfModal && pdfFrame) {
+        pdfFrame.src = pdfURL;
+        pdfModal.style.display = "flex";
+      }
+    }
+    // Funkcja zamykania PDF (Modal)
+    function closePDF() {
+      var pdfModal = document.getElementById("pdfModal");
+      var pdfFrame = document.getElementById("pdfFrame");
+      if (pdfModal && pdfFrame) {
+        pdfModal.style.display = "none";
+        pdfFrame.src = "";
+      }
+    }
+
+    // Obsługa czatu
+    var chatForm = document.getElementById("chatForm");
+    var chatInput = document.getElementById("chatInput");
+    var chatMessages = document.getElementById("chatMessages");
+    if (chatForm) {
+      chatForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var msg = chatInput.value;
+        if (msg.trim() !== "") {
+          var msgDiv = document.createElement("div");
+          msgDiv.textContent = msg;
+          msgDiv.style.margin = "5px 0";
+          chatMessages.appendChild(msgDiv);
+          chatInput.value = "";
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      });
+    }
+
+    // Rejestracja Service Workera (dla PWA)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js')
+          .then(function(registration) {
+            console.log('Service Worker registered with scope:', registration.scope);
+          }, function(err) {
+            console.log('Service Worker registration failed:', err);
+          });
+      });
+    }
   </script>
 </body>
 </html>
