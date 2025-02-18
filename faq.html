@@ -2,17 +2,20 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <!-- Ustawienie widoku na urządzenia mobilne -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
   <title>FAQ - Portal Śledczy</title>
-  
-  <!-- Krótki opis (SEO) -->
-  <meta name="description" content="Najczęściej zadawane pytania dotyczące Portalu Śledczego oraz domniemanych naruszeń prawa przez dr Kingę Szczepanek. Informacje o zasadzie domniemania niewinności, sposobie prezentacji dowodów i możliwościach kontaktu.">
+  <meta name="description" content="Najczęściej zadawane pytania dotyczące skandalicznych praktyk dr K.S. i sposób, w jaki ujawniamy prawdę." />
+  <meta name="keywords" content="dr K.S., kinga szczepanek, narkotyki, handel, agresja, skandal medyczny, pytania i odpowiedzi" />
 
-  <!-- Wewnętrzne style -->
+  <!-- Open Graph i Twitter Cards (opcjonalne) -->
+  <meta property="og:title" content="FAQ - Portal Śledczy" />
+  <meta property="og:description" content="Dowiedz się więcej o śledztwie w sprawie dr K.S. i poznaj odpowiedzi na najczęstsze pytania." />
+  <meta property="og:url" content="https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io/faq.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    /* Reset i podstawowe style */
+    /* RESET */
     * {
       margin: 0;
       padding: 0;
@@ -20,163 +23,190 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background: url('https://source.unsplash.com/1600x900/?dark,abstract') no-repeat center center fixed;
+      background: url('https://source.unsplash.com/1600x900/?dark,crime') no-repeat center center fixed;
       background-size: cover;
-      padding: 20px;
-      line-height: 1.5;
       color: #fff;
+      padding: 20px;
+      line-height: 1.6;
+      position: relative;
     }
-    /* Overlay dla ciemniejszego tła – poprawa czytelności */
+    /* OverLay dla poprawy czytelności */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.6);
       z-index: -1;
     }
+
+    /* FAQ Container */
     .faq-container {
       max-width: 800px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0,0,0,0.8);
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      backdrop-filter: blur(2px);
     }
     h1 {
       text-align: center;
       margin-bottom: 20px;
       font-size: 2em;
+      text-transform: uppercase;
     }
+
+    /* FAQ-item */
     .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.3);
       margin-bottom: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-      overflow: hidden;
     }
     .faq-item:last-child {
       border-bottom: none;
     }
     .faq-question {
-      background-color: rgba(226,226,226,0.2);
       cursor: pointer;
       padding: 15px;
-      font-size: 1.1em;
+      background-color: rgba(255,255,255,0.1);
       transition: background-color 0.3s ease;
-      -webkit-tap-highlight-color: transparent;
+      font-size: 1.1em;
     }
     .faq-question:hover {
-      background-color: rgba(208,208,208,0.3);
+      background-color: rgba(255,0,0,0.3);
     }
     .faq-answer {
       display: none;
       padding: 15px;
-      font-size: 1em;
-      line-height: 1.5;
-      background-color: rgba(0,0,0,0.5);
-      color: #fff;
+      background-color: rgba(255,255,255,0.05);
     }
     .faq-item.active .faq-answer {
       display: block;
     }
 
-    /* Media queries dla responsywności */
+    /* Link powrotu */
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1em;
+      background: #900C3F;
+      padding: 10px 20px;
+      border-radius: 4px;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .back-link:hover {
+      background: #c70039;
+    }
+
     @media (max-width: 600px) {
       .faq-container {
         padding: 15px;
       }
-      h1 {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-      }
-      .faq-question {
-        padding: 12px;
+      .faq-question, .faq-answer {
         font-size: 1em;
       }
-      .faq-answer {
-        padding: 12px;
-        font-size: 0.95em;
-      }
-    }
-    @media (max-width: 480px) {
-      body {
-        padding: 10px;
-      }
-      .faq-container {
-        padding: 10px;
-      }
-      h1 {
-        font-size: 1.6em;
-        margin-bottom: 10px;
-      }
-      .faq-question {
-        padding: 10px;
-        font-size: 0.95em;
-      }
-      .faq-answer {
-        padding: 10px;
+      .back-link {
+        width: 150px;
         font-size: 0.9em;
       }
     }
   </style>
-</head>
-<body>
-  <div class="overlay"></div>
-  <div class="faq-container">
-    <h1>Najczęściej Zadawane Pytania (FAQ)</h1>
-    
-    <div class="faq-item">
-      <h3 class="faq-question">Co to jest ten Portal Śledczy?</h3>
-      <div class="faq-answer">
-        <p>Portal Śledczy to inicjatywa obywatelska, która ma na celu ujawnienie potencjalnych nieprawidłowości w środowisku medycznym i prawnym. Prezentujemy tu materiały dowodowe, dokumenty oraz nagrania, umożliwiające weryfikację przedstawionych zarzutów przy zachowaniu zasady domniemania niewinności.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <h3 class="faq-question">Jakie treści mogę znaleźć na stronie?</h3>
-      <div class="faq-answer">
-        <p>Na stronie znajdziesz dokumenty PDF, nagrania audio, artykuły oraz inne materiały dotyczące doniesień o potencjalnych naruszeniach prawa. Prezentujemy je w sposób umożliwiający weryfikację informacji, pamiętając o zasadzie domniemania niewinności.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <h3 class="faq-question">Czy informacje są w 100% pewne?</h3>
-      <div class="faq-answer">
-        <p>Prezentowane materiały opierają się na zgromadzonych dowodach i relacjach świadków. Ostateczną ocenę wiarygodności informacji pozostawiamy właściwym organom ścigania, a naszym celem jest jedynie poinformowanie opinii publicznej.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <h3 class="faq-question">Co z zasadą domniemania niewinności?</h3>
-      <div class="faq-answer">
-        <p>Portal Śledczy przestrzega zasady domniemania niewinności. Prezentowane materiały mają charakter informacyjny i wskazują jedynie na potencjalne nieprawidłowości, a ostateczne ustalenie winy należy do organów ścigania i wymiaru sprawiedliwości.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <h3 class="faq-question">Jak mogę skontaktować się z administracją portalu lub zgłosić sprostowanie?</h3>
-      <div class="faq-answer">
-        <p>Możesz skontaktować się z nami za pomocą formularza kontaktowego dostępnego na stronie lub wysłać wiadomość na adres e-mail podany w zakładce „Kontakt”. Jesteśmy otwarci na sprostowania i aktualizacje, jeśli pojawią się nowe, wiarygodne dowody.</p>
-      </div>
-    </div>
-    
-    <div class="faq-item">
-      <h3 class="faq-question">Czy mogę udostępniać treści z portalu?</h3>
-      <div class="faq-answer">
-        <p>Tak, zachęcamy do udostępniania treści, przy zachowaniu kontekstu oraz podania źródła, aby odbiorcy mogli zapoznać się z pełną treścią i warunkami publikacji.</p>
-      </div>
-    </div>
-    
-  </div>
-
   <script>
-    // Skrypt do rozwijania i zwijania odpowiedzi FAQ
-    document.querySelectorAll('.faq-question').forEach(function(question) {
-      question.addEventListener('click', function() {
-        this.parentElement.classList.toggle('active');
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          question.parentElement.classList.toggle('active');
+        });
       });
     });
   </script>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="faq-container">
+    <h1>Najczęściej Zadawane Pytania</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        1. Dlaczego oskarżacie dr K.S. o tak poważne przestępstwa?
+      </div>
+      <div class="faq-answer">
+        <p>
+          Dysponujemy mocnymi dowodami – nagraniami audio, dokumentami i zeznaniami – które jasno wskazują na jej udział w nielegalnym
+          obrocie narkotykami i inne karygodne zachowania.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        2. Czy jesteście pewni jej winy?
+      </div>
+      <div class="faq-answer">
+        <p>
+          Tak, nie mamy żadnych wątpliwości. Liczne świadectwa i materiały nie pozostawiają miejsca na inne wnioski. 
+          Uważamy, że to kwestia czasu, aż dr K.S. poniesie surowe konsekwencje.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        3. Co zrobić, jeśli mam dodatkowe dowody lub chcę coś sprostować?
+      </div>
+      <div class="faq-answer">
+        <p>
+          Zachęcamy do przesyłania wszelkich dowodów (nagrania, zdjęcia, dokumenty) na adres: <strong>rafixks@interia.pl</strong>.
+          Chętnie je opublikujemy i przekażemy do odpowiednich służb. Jeśli posiadasz inne fakty, które wzbogacą nasz portal – daj nam znać.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        4. Czy ta strona nie naraża Was na konsekwencje prawne?
+      </div>
+      <div class="faq-answer">
+        <p>
+          Rozumiemy ryzyko, ale uważamy, że interes społeczny jest nadrzędny. Nie można tolerować lekarza, który naraża zdrowie pacjentów i łamie prawo na taką skalę.
+          Czasem trzeba być gotowym na walkę w imię sprawiedliwości.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        5. Czy można pomóc w nagłośnieniu tej sprawy?
+      </div>
+      <div class="faq-answer">
+        <p>
+          Oczywiście. Zachęcamy do udostępniania linku do naszego portalu w mediach społecznościowych, wysyłania go znajomym i rodzinie.  
+          Każda forma nagłośnienia jest mile widziana – im więcej osób się dowie, tym szybciej organy ścigania zaczną działać.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        6. Gdzie znajdę więcej informacji?
+      </div>
+      <div class="faq-answer">
+        <p>
+          Na stronie głównej portalu (link poniżej) znajdziesz sekcję z dokumentami, nagraniami oraz artykułami dotyczącymi
+          kryminalnej działalności dr K.S. Możesz też zapisać się na nasz newsletter, aby otrzymywać aktualizacje.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-link">Powrót na stronę główną</a>
 </body>
 </html>
