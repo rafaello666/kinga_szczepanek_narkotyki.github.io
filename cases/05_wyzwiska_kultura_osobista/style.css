@@ -1,0 +1,58 @@
+/* Ustawienia globalne */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tryb ciemny */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Nawigacja */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Sekcja Hero */
+header {
+  background: url('images/header-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Nagłówki karuzeli */
+.carousel-caption h5 {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Style Accordion */
+.accordion-button:not(.collapsed) {
+  background-color: #343a40;
+  color: #fff;
+}
+.accordion-button.collapsed {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+/* Lista dowodów */
+.list-group-item-action:hover {
+  background-color: #f0f0f0;
+}
+
+/* Stopka */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
