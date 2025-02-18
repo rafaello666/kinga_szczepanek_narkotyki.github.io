@@ -123,22 +123,22 @@
       height: auto;
       display: block;
     }
-    /* Responsive Audio - zapewnia poprawne skalowanie odtwarzacza na urządzeniach mobilnych */
+    /* Responsive Audio - poprawne skalowanie odtwarzacza */
     .audio-item audio {
       width: 100%;
       height: auto;
     }
-    /* Dodany kontener dla audio */
+    /* Kontener dla audio – dodano widoczny obrys i tło */
     .audio-container {
       width: 100%;
       max-width: 600px;
       margin: 20px auto;
       padding: 20px;
       background: #222;
+      border: 2px solid #c70039; /* Widoczny obrys */
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
-    /* Upewnij się, że sam odtwarzacz audio jest widoczny */
     .audio-container audio {
       display: block;
       margin: 10px auto;
@@ -501,114 +501,6 @@
       }
     }
   </style>
-
-  <!-- Wewnętrzny JavaScript -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Obsługa modala disclaimer
-      var confirmBtn = document.getElementById("confirmModal");
-      var modalOverlay = document.getElementById("modalOverlay");
-      if (confirmBtn && modalOverlay) {
-        confirmBtn.addEventListener("click", function() {
-          modalOverlay.style.display = "none";
-        });
-      }
-      
-      // Hamburger Menu
-      var hamburger = document.getElementById("hamburger");
-      var navLinks = document.getElementById("navLinks");
-      if (hamburger) {
-        hamburger.addEventListener("click", function() {
-          if (navLinks.style.display === "flex") {
-            navLinks.style.display = "none";
-          } else {
-            navLinks.style.display = "flex";
-            navLinks.style.flexDirection = "column";
-          }
-        });
-      }
-      
-      // Funkcja otwierania PDF (Modal)
-      window.openPDF = function(pdfURL) {
-        var pdfModal = document.getElementById("pdfModal");
-        var pdfFrame = document.getElementById("pdfFrame");
-        if (pdfModal && pdfFrame) {
-          pdfFrame.src = pdfURL;
-          pdfModal.style.display = "flex";
-        }
-      };
-      
-      // Funkcja zamykania PDF (Modal)
-      window.closePDF = function() {
-        var pdfModal = document.getElementById("pdfModal");
-        var pdfFrame = document.getElementById("pdfFrame");
-        if (pdfModal && pdfFrame) {
-          pdfModal.style.display = "none";
-          pdfFrame.src = "";
-        }
-      };
-      
-      // Obsługa czatu
-      var chatForm = document.getElementById("chatForm");
-      var chatInput = document.getElementById("chatInput");
-      var chatMessages = document.getElementById("chatMessages");
-      if (chatForm) {
-        chatForm.addEventListener("submit", function(e) {
-          e.preventDefault();
-          var msg = chatInput.value;
-          if (msg.trim() !== "") {
-            var msgDiv = document.createElement("div");
-            msgDiv.textContent = msg;
-            msgDiv.style.margin = "5px 0";
-            chatMessages.appendChild(msgDiv);
-            chatInput.value = "";
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-          }
-        });
-      }
-      
-      // Lazy loading obrazów za pomocą Intersection Observer
-      const lazyImages = document.querySelectorAll('img.lazy');
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-              observer.unobserve(img);
-            }
-          });
-        });
-        lazyImages.forEach(img => {
-          imageObserver.observe(img);
-        });
-      }
-    });
-
-    // Rejestracja Service Workera (dla PWA)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js')
-          .then(function(registration) {
-            console.log('Service Worker registered with scope:', registration.scope);
-          }, function(err) {
-            console.log('Service Worker registration failed:', err);
-          });
-      });
-    }
-  </script>
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7ZGTVW9Y0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D7ZGTVW9Y0');
-  </script>
-  
-  <meta name="google-site-verification" content="bBhfDGfQB6ZFKdiTtllFSi9Ncfnbn2PcpDGyAq7rHcI" />
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -621,7 +513,7 @@
   <div id="modalOverlay" class="modal-overlay" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
       <h2 id="modalTitle">Uwaga: Materiały Kontrowersyjne</h2>
-      <p id="modalDesc">Niniejszy portal ujawnia dowody naruszeń prawa, w tym kontrowersyjne działania doktor Kingi Szczepanek. Prosimy o uważne zapoznanie się z prezentowanymi materiałami.</p>
+      <p id="modalDesc">Niniejszy portal ujawnia dowody naruszeń prawa, w tym kontrowersyjne działania doktor Kinga Szczepanek. Prosimy o uważne zapoznanie się z prezentowanymi materiałami.</p>
       <button id="confirmModal" class="btn-modal">Zapoznałem się</button>
     </div>
   </div>
@@ -679,14 +571,14 @@
       </p>
     </section>
 
-    <!-- Sekcja przedstawiająca postać dr Kingi Szczepanek -->
+    <!-- Sekcja przedstawiająca postać dr Kinga Szczepanek -->
     <section id="o-dr-szczepanek">
       <h2>Kim jest dr Kinga Szczepanek? Pozornie przykładna lekarka</h2>
       <p>
         Dr Kinga Szczepanek to lekarz anestezjolog z wieloletnim doświadczeniem. Ukończyła studia medyczne na Uniwersytecie Jagiellońskim w Krakowie w 2000 roku i specjalizację z anestezjologii w 2008 roku, uzyskując znakomite wyniki. Pracowała m.in. w Szpitalu Uniwersyteckim w Krakowie oraz jako wykładowca akademicki, a także prowadzi własną praktykę lekarską. Na papierze jej kariera wygląda nieskazitelnie – doświadczona i ceniona lekarka z licznymi osiągnięciami.
       </p>
       <p>
-        Niestety, ten obiecujący obraz to tylko połowa prawdy. Równolegle z oficjalnymi osiągnięciami, pojawiła się druga, mroczna strona działalności dr Kingi Szczepanek. Zaczęły napływać niepokojące sygnały i świadectwa, które ujawniły szokujące fakty na temat jej życia prywatnego i zawodowego. To właśnie te informacje stały się impulsem do powstania niniejszego portalu śledczego.
+        Niestety, ten obiecujący obraz to tylko połowa prawdy. Równolegle z oficjalnymi osiągnięciami, pojawiła się druga, mroczna strona działalności dr Kinga Szczepanek. Zaczęły napływać niepokojące sygnały i świadectwa, które ujawniły szokujące fakty na temat jej życia prywatnego i zawodowego. To właśnie te informacje stały się impulsem do powstania niniejszego portalu śledczego.
       </p>
     </section>
 
@@ -782,7 +674,7 @@
   <section id="audioSection" class="section" aria-label="Nagrania Audio">
     <h2>Audio Deklaracje</h2>
     <p>Nagrania ujawniające kontrowersje wokół działań doktor Kinga Szczepanek.</p>
-    <!-- Dodany kontener dla audio -->
+    <!-- Kontener audio -->
     <div class="audio-container">
       <div class="audio-item">
         <h3>Kinga Szczepanek – Proceder Narkotykowy</h3>
@@ -817,6 +709,17 @@
       <a href="cases/02_diamonds/polityka.html" target="_blank">Polityka Prywatności</a>
     </p>
     <p><a href="mailto:rafixks@interia.pl">Kontakt</a></p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frafaello666.github.io%2Fkinga_szczepanek_narkotyki.github.io" target="_blank" aria-label="Udostępnij na Facebooku">
+        <img src="images/facebook-icon.png" alt="Facebook icon" loading="lazy" />
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Sprawdź%20tę%20stronę:&url=https%3A%2F%2Frafaello666.github.io%2Fkinga_szczepanek_narkotyki.github.io" target="_blank" aria-label="Udostępnij na Twitterze">
+        <img src="images/twitter-icon.png" alt="Twitter icon" loading="lazy" />
+      </a>
+      <a href="https://www.instagram.com/rafaello666" target="_blank" aria-label="Odwiedź nas na Instagramie">
+        <img src="images/instagram-icon.png" alt="Instagram icon" loading="lazy" />
+      </a>
+    </div>
     <div class="contact-form">
       <h3>Skontaktuj się z nami</h3>
       <form id="contactForm" action="mailto:rafixks@interia.pl" method="post" enctype="text/plain">
