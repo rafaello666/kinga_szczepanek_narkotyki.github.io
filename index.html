@@ -14,7 +14,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal Śledczy | Naruszenia Prawa - Doktor Kinga Szczepanek</title>
-  <meta name="description" content="Interaktywny portal dochodzeniowo-informacyjny ujawniający naruszenia prawa przez doktor Kingę Szczepanek. Dowody, dokumenty, nagrania oraz dyskusje – wszystko w jednym miejscu." />
+  <meta name="description" content="Interaktywny portal dochodzeniowo-informacyjny ujawniający naruszenia prawa przez doktor Kinga Szczepanek. Dowody, dokumenty, nagrania oraz dyskusje – wszystko w jednym miejscu." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io/" />
   <meta name="keywords" content="naruszenia prawa, doktor Kinga Szczepanek, dowody, dokumenty, nagrania, portal śledczy, dochodzenie, kontrowersje" />
@@ -127,6 +127,16 @@
     .audio-item audio {
       width: 100%;
       height: auto;
+    }
+    /* Dodany kontener dla audio */
+    .audio-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #222;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     /* Animacje i przejścia */
     .fade-in {
@@ -430,7 +440,7 @@
       border-radius: 4px;
       border: 1px solid #ccc;
     }
-    /* Responsywność */
+    /* Dodatkowy skrypt do animacji obrazów przy przewijaniu */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -636,7 +646,7 @@
   <section id="hero" class="hero-section" aria-label="Sekcja główna">
     <div class="hero-content">
       <h1>Odkryj Prawdę: Naruszenia Prawa i Kontrowersje</h1>
-      <p>Dowody, dokumenty, nagrania – ujawniające nieetyczne i nielegalne działania doktor Kingi Szczepanek.</p>
+      <p>Dowody, dokumenty, nagrania – ujawniające nieetyczne i nielegalne działania doktor Kinga Szczepanek.</p>
       <a href="cases/z_archiwum_x.html" class="btn-cta">Przejdź do spisu przypadków</a>
     </div>
   </section>
@@ -767,13 +777,16 @@
   <section id="audioSection" class="section" aria-label="Nagrania Audio">
     <h2>Audio Deklaracje</h2>
     <p>Nagrania ujawniające kontrowersje wokół działań doktor Kingi Szczepanek.</p>
-    <div class="audio-item">
-      <h3>Kinga Szczepanek – Proceder Narkotykowy</h3>
-      <p>Opis nagrania dotyczącego procederu narkotykowego.</p>
-      <audio controls>
-        <source src="4%20czerwca_wycinki_dawidek_DRAGIKINGI.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie wspiera elementu audio.
-      </audio>
+    <!-- Dodany kontener dla audio -->
+    <div class="audio-container">
+      <div class="audio-item">
+        <h3>Kinga Szczepanek – Proceder Narkotykowy</h3>
+        <p>Opis nagrania dotyczącego procederu narkotykowego.</p>
+        <audio controls>
+          <source src="4%20czerwca_wycinki_dawidek_DRAGIKINGI.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie wspiera elementu audio.
+        </audio>
+      </div>
     </div>
   </section>
   
