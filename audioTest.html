@@ -1,15 +1,883 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" />
-    <title>Test odtwarzania M4A</title>
+  <meta charset="UTF-8" />
+  <!-- Mobile-first viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+  <title>Studium przypadku: Kinga Szczepanek i historie narkotykowe</title>
+  <meta name="description" content="Poznaj wyczyny Kingi Szczepanek – studium przypadku oraz historie narkotykowe. Dowiedz się, jak działały kontrowersyjne procedery, kto był zaangażowany i jakie konsekwencje niosły te działania.">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Studium przypadku: Kinga Szczepanek i historie narkotykowe" />
+  <meta property="og:description" content="Poznaj wyczyny Kingi Szczepanek – studium przypadku oraz historie narkotykowe. Dowiedz się, jak działały kontrowersyjne procedery, kto był zaangażowany i jakie konsekwencje niosły te działania." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io/cases/z_archiwum_x.html" />
+  <meta property="og:image" content="https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io/cases/images/hero-image.jpg" />
+
+  <!-- FAVICONS (folder: favicon/) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="76x76"   href="favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="72x72"   href="favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="60x60"   href="favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="57x57"   href="favicon/apple-touch-icon-57x57.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon/favicon-512x512.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="favicon/favicon-256x256.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="96x96"   href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48"   href="favicon/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32"   href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16"   href="favicon/favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="favicon/favicon.svg">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts (opcjonalnie) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Rozbudowany CSS – dzieło sztuki -->
+  <style>
+    :root {
+      --primary-color: #ffa500;
+      --secondary-color: #ffc04d;
+      --bg-gradient-start: #1f1f1f;
+      --bg-gradient-end: #3b3b52;
+      --accent-color: #ff00ff;
+      --text-color: #333;
+      --light-text: #ddd;
+      --header-bg: rgba(0,0,0,0.85);
+    }
+
+    /* Globalne style */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: #f2f2f2;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Header i nawigacja */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--header-bg);
+      padding: 1em 2em;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .hamburger {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+    nav {
+      background: var(--header-bg);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    nav.active {
+      max-height: 400px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0.5em;
+    }
+    nav li {
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    nav li:first-child {
+      border-top: none;
+    }
+    nav a {
+      display: block;
+      padding: 1em;
+      color: #fff;
+      font-weight: 600;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero section – animowany gradient tła */
+    .hero-section {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #000 0%, #444 50%, #000 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+      padding: 3em 1em;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 1em;
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+      font-size: 1.2em;
+      margin-bottom: 1em;
+    }
+    .hero-cta-btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #000;
+      padding: 1em 2em;
+      font-size: 1.1em;
+      border-radius: 50px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .hero-cta-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    /* Wave divider – artystyczna fala */
+    .wave-divider {
+      position: relative;
+      height: 80px;
+      width: 100%;
+      overflow: hidden;
+      background: #fff;
+    }
+    .wave-divider svg {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Gallery – artystyczne karty */
+    .case-gallery {
+      position: relative;
+      padding: 3em 1em;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      background-size: 400% 400%;
+      animation: bgPan 20s ease infinite;
+      overflow: hidden;
+    }
+    @keyframes bgPan {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .case-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('images/detective-pattern.png') repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .gallery-heading {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2em;
+    }
+    .gallery-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2em;
+      color: #fff;
+      margin-bottom: 0.3em;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+    .gallery-heading p {
+      font-size: 1.1em;
+      color: var(--light-text);
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5em;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      animation: fadeInGallery 1s ease forwards;
+    }
+    @media (min-width: 768px) {
+      .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    @keyframes fadeInGallery {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    }
+    .card-image {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .card-image img {
+      transition: transform 0.4s ease;
+    }
+    .card-image:hover img {
+      transform: scale(1.1);
+    }
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      padding: 0.8em;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .card-image:hover .card-overlay {
+      opacity: 1;
+    }
+    .card-overlay h3 {
+      font-size: 1.1em;
+      margin: 0.2em 0;
+      font-family: 'Playfair Display', serif;
+    }
+    .card-content {
+      padding: 1em;
+      flex: 1;
+    }
+    .card-content p {
+      margin-bottom: 1em;
+      font-size: 1em;
+      color: #555;
+    }
+    .card-btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #000;
+      padding: 0.6em 1.2em;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 0.95em;
+    }
+    .card-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    /* Specjalny case – przepiękny efekt neonowy */
+    .special-card-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .special-card {
+      border: 5px solid var(--accent-color);
+      transform: scale(1.05);
+      margin: 2em 0;
+      max-width: 600px;
+      position: relative;
+      transition: transform 0.4s ease;
+    }
+    .special-card:hover {
+      transform: scale(1.08);
+    }
+    .special-card .card-overlay {
+      opacity: 1 !important;
+      transition: none;
+    }
+    .special-case {
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 0.6em 1em;
+      border-radius: 8px;
+      text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+      animation: neonPulse 2s infinite;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4em;
+      text-transform: uppercase;
+    }
+    @keyframes neonPulse {
+      0%, 100% { text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+      50% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+    }
+
+    /* Info section – timeline elegancki */
+    .info-section {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 3em auto;
+      padding: 2em 1em;
+      gap: 2em;
+      background-color: #f2f2f2;
+    }
+    .info-left, .info-right {
+      flex: 1 1 100%;
+    }
+    .info-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
+    .info-left p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 1em;
+    }
+    .info-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .timeline {
+      position: relative;
+      padding: 2em 0;
+      width: 100%;
+      max-width: 500px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border-radius: 2px;
+    }
+    .timeline-step {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 2em;
+    }
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-bullet {
+      position: absolute;
+      left: -42px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #fff;
+    }
+    .timeline-step h4 {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 0.3em;
+    }
+    .timeline-step p {
+      font-size: 0.95em;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Stopka – elegancki design */
+    .site-footer {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 2em 1em;
+      gap: 1.5em;
+      text-align: center;
+    }
+    .footer-col h3 {
+      font-size: 1.4em;
+      margin-bottom: 0.5em;
+      font-family: 'Playfair Display', serif;
+    }
+    .footer-col p {
+      font-size: 0.95em;
+      color: #ccc;
+      line-height: 1.4;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5em;
+    }
+    .footer-col ul li a {
+      color: #fff;
+      font-size: 0.95em;
+      transition: color 0.3s ease;
+    }
+    .footer-col ul li a:hover {
+      color: var(--primary-color);
+    }
+    .social-icons a {
+      margin-right: 0.5em;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      object-fit: cover;
+    }
+
+    /* Responsywność */
+    @media (min-width: 768px) {
+      .header-inner {
+        gap: 2em;
+      }
+      .hamburger {
+        display: none;
+      }
+      nav {
+        max-height: none;
+        background: transparent;
+      }
+      nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      nav li {
+        border: none;
+      }
+      nav a {
+        padding: 0.8em 1em;
+      }
+      header {
+        padding: 1em 3em;
+      }
+      .info-section {
+        flex-direction: row;
+      }
+      .site-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+      .footer-col {
+        flex: 1;
+        margin: 0.5em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Odtwarzanie pliku M4A</h1>
-    <audio controls>
-        <source src="Recording_4.m4a" type="audio/m4a" />
-        <!-- ewentualnie type="audio/m4a" lub "audio/aac" -->
-        Twoja przeglądarka nie obsługuje elementu audio.
-    </audio>
+  <!-- HEADER + HAMBURGER MENU -->
+  <header>
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io">Szczepanek Cases</a>
+      </div>
+      <div class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav id="mobileNav">
+      <ul>
+        <li><a href="https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io">Strona główna</a></li>
+        <li><a href="04_audio/audio.html">Audio</a></li>
+        <li><a href="mailto:rafixks@interia.pl">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Odkryj wyczyny Kingi Szczepanek w krakowskim narkotykowym świecie</h1>
+      <p>Poznaj kontrowersyjne działania i metody, które zmieniają reguły gry.</p>
+      <a href="04_audio/audio.html" class="hero-cta-btn">Odkryj więcej</a>
+    </div>
+  </section>
+
+  <!-- FALA - PRZEJŚCIE DO PIERWSZEJ GALERII -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#ffffff" fill-opacity="1" d="M0,256L60,234.7C120,213,240,171,360,176C480,181,600,235,720,266.7C840,299,960,309,1080,266.7C1200,224,1320,128,1380,80L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <!-- GALERIA CASE'ÓW -->
+  <section class="case-gallery">
+    <div class="gallery-heading">
+      <h2>Narkotyczny Świat Kingi Szczepanek</h2>
+      <p>Odkryj tajemnice, które zmieniają oblicze polskiej sceny medycznej.</p>
+    </div>
+    <div class="cards-container">
+      <!-- KARTA 1 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="samochodzik.png" alt="Szybkie auto, szybkie dragi, jak szybka i łatwa prosta jest Kinga Szczepanek." loading="lazy" />
+          <div class="card-overlay">
+            <a href="01_samochodzik/index.html" class="card-btn">Odkryj</a>
+            <h3>Case 1: Szybki samochodzik, szybka anestezjologia</h3>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Odkrycie szemranej działalności – bolesny missclick dilera.</p>
+          <a href="01_samochodzik/index.html" class="card-btn">Odkryj</a>
+        </div>
+      </article>
+
+      <!-- KARTA 2 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="logo.png" alt="Rozsypane kryształy i narkotyczne substancje" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case 2: Kryształy Kingi Szczepanek</h3>
+            <a href="02_diamonds/index.html" class="card-btn">Zgłoś naruszenia</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Kryształy, szmaragdy, diamenty czy metaamfetamina?</p>
+          <a href="02_diamonds/index.html" class="card-btn">Spójrz, posłuchaj</a>
+        </div>
+      </article>
+
+      <!-- KARTA 3 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/case3_background.png" alt="Kinga Szczepanek i jej ekscesy w klubach Swingers - Lacrima Di Sangue Wrocław" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case 3: La Crima Di Sangue – przygody we Wrocławiu</h3>
+            <a href="03_lacrimadisangue/index.html" class="card-btn">Zgłoś naruszenia</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Narkotyki, alkohol i gwałty – chleb powszedni Kingi Szczepanek.</p>
+          <a href="03_lacrimadisangue/index.html" class="card-btn">Poznaj szczegóły</a>
+        </div>
+      </article>
+
+      <!-- KARTA AUDIO -->
+      <article class="card">
+        <div class="card-image">
+          <img src="audio.jpg" alt="Grafika symbolizująca audio – mikrofon i dźwiękowe fale" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case: Audio – Tajemnicze dźwięki</h3>
+            <a href="04_audio/audio.html" class="card-btn">Odkryj audio</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Posłuchaj nagrań odsłaniających brutalność i sekrety świata Kingi Szczepanek.</p>
+          <a href="04_audio/audio.html" class="card-btn">Posłuchaj szczegółów</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FALA DO DRUGIEJ GALERII -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fff" fill-opacity="1" d="M0,192L80,186.7C160,181,320,171,480,160C640,149,800,139,960,165.3C1120,192,1280,256,1360,288L1440,320L1440,320L1360,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,80,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <!-- DRUGA GALERIA -->
+  <section class="case-gallery">
+    <div class="gallery-heading">
+      <h2>Kolejne przypadki: Szokujące fakty</h2>
+      <p>Poznaj ciąg dalszy bulwersujących wydarzeń</p>
+    </div>
+    <div class="cards-container">
+      <!-- Specjalna karta -->
+      <article class="special-card-wrapper">
+        <div class="card special-card">
+          <div class="card-image">
+            <img src="images/funny_kinga.jpg" alt="Karykaturalna grafika przedstawiająca Kingę Szczepanek" loading="lazy" />
+            <div class="card-overlay">
+              <h3 class="special-case">
+                <span class="main-title">50 TWARZY</span>
+                <span class="subtitle">KINGI SZCZEPANEK</span>
+              </h3>
+            </div>
+          </div>
+          <div class="card-content">
+            <a href="05_wyzwiska_kultura_osobista/index.html" class="card-btn">POZNAJ KINGĘ</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Karta CASE 4,5,6,7 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="4567czerwca.jpg" alt="Kinga Szczepanek w naturalnym środowisku ze spermą na wąsach" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case: 4,5,6,7 czerwca</h3>
+            <a href="4567czerwca/4567czerwca.html" class="card-btn">Zgłoś naruszenia</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Amfetamina w pracy, Dawid Dudzik i dilerka – poznaj kulisy procederu.</p>
+          <a href="4567czerwca/4567czerwca.html" class="card-btn">Zobacz dowody</a>
+        </div>
+      </article>
+
+      <!-- Karta CASE 6 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/zdemolowany_samochod.jpg" alt="Zdemolowany samochód z wulgarnymi napisami" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case 6: Zdemolowany Samochód</h3>
+            <a href="zdemolowane_auto/index.html" class="card-btn">Poznaj Kingę</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Poznaj szczegóły historii o wandalizmie i brutalnej agresji Kingi Szczepanek ze Skawiny.</p>
+          <a href="zdemolowane_auto/index.html" class="card-btn">Zobacz szczegóły</a>
+        </div>
+      </article>
+
+      <!-- Karta CASE - Włamania -->
+      <article class="card">
+        <div class="card-image">
+          <img src="obrzydlistwo.png" alt="Obrzydliwy obraz symbolizujący ohydę działań Kingi Szczepanek" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case: Włamania i inne wizytówki Kingi Szczepanek z POLSPEN</h3>
+            <a href="07_wlamania/index.html" class="card-btn">Rzuć na to okiem</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Dowody na włamania do urządzeń i kradzież danych – poznaj kulisy świata Kingi Szczepanek.</p>
+          <a href="07_wlamania/index.html" class="card-btn">Spójrz, jeśliś łaskaw</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FALA – PRZEJŚCIE DO SEKCJI INFO (TIMELINE) -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#f2f2f2" fill-opacity="1" d="M0,320L60,293.3C120,267,240,213,360,181.3C480,149,600,139,720,138.7C840,139,960,149,1080,154.7C1200,160,1320,160,1380,160L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+    </svg>
+  </div>
+
+  <!-- INFO SECTION: Tekst + Timeline -->
+  <section class="info-section">
+    <div class="info-left">
+      <h2>Dlaczego te historie są warte uwagi?</h2>
+      <p>
+        Te historie to nie tylko kolejne doniesienia – to brutalne ostrzeżenia o upadku systemu, który pozwala na patologiczne nadużycia. Każdy z tych przypadków demaskuje mechanizmy niszczące życie ludzi – od narkotykowych zagryzek po cyberprzestępczość i nieetyczne działania w służbie zdrowia.
+      </p>
+      <p>
+        Ujawnianie tych mrocznych realiów budzi oburzenie, ale jednocześnie mobilizuje do działania. Walka o sprawiedliwość i odpowiedzialność to obowiązek nas wszystkich.
+      </p>
+    </div>
+    <div class="info-right">
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 1: Wykrycie nieprawidłowości</h4>
+          <p>Pierwsze sygnały o niebezpiecznej działalności i relacje świadków.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 2: Zbieranie dowodów</h4>
+          <p>Dokumenty, nagrania, screenshoty – fakty wskazują, że sprawa jest poważna.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 3: Publikacja materiałów</h4>
+          <p>Informacje trafiają na światło dzienne, umożliwiając ocenę skali naruszeń.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 4: Reakcja opinii publicznej</h4>
+          <p>Rosnące oburzenie i wezwania do podjęcia działań.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 5: Dalsze śledztwo i konsekwencje</h4>
+          <p>Zbieranie kolejnych materiałów i działania organów ścigania.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPKA -->
+  <footer class="site-footer">
+    <div class="footer-col">
+      <h3>Narkotyki Kingi Szczepanek</h3>
+      <p>SZCZEPANEK CASES – OFICJALNE MATERIAŁY</p>
+    </div>
+    <div class="footer-col">
+      <ul>
+        <li><a href="02_diamonds/polityka.html">Polityka prywatności</a></li>
+        <li><a href="02_diamonds/regulamin.html">Regulamin</a></li>
+      </ul>
+    </div>
+    <div class="footer-col social-icons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io" target="_blank" aria-label="Udostępnij na Facebooku">
+        <img src="images/facebook-icon.png" alt="Facebook icon" loading="lazy" />
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Sprawdź%20tę%20stronę:&url=https://rafaello666.github.io/kinga_szczepanek_narkotyki.github.io" target="_blank" aria-label="Udostępnij na Twitterze">
+        <img src="images/twitter-icon.png" alt="Twitter icon" loading="lazy" />
+      </a>
+      <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Odwiedź nas na Instagramie">
+        <img src="images/instagram-icon.png" alt="Instagram icon" loading="lazy" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- SKRYPTY -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileNav = document.getElementById("mobileNav");
+
+      hamburgerBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.toggle("open");
+        mobileNav.classList.toggle("active");
+      });
+
+      /* Lightbox – artystyczna galeria */
+      const allImages = Array.from(document.querySelectorAll(".card-image img"));
+      const lightbox = document.createElement("div");
+      lightbox.classList.add("lightbox");
+      lightbox.innerHTML = `
+        <div class="lightbox-content">
+          <span class="lightbox-close">Zamknij</span>
+          <span class="lightbox-prev">&#9664;</span>
+          <span class="lightbox-next">&#9654;</span>
+          <img id="lightboxImg" src="" alt="podgląd obrazu" />
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+
+      const lightboxImg = document.getElementById("lightboxImg");
+      const closeBtn = lightbox.querySelector(".lightbox-close");
+      const nextBtn = lightbox.querySelector(".lightbox-next");
+      const prevBtn = lightbox.querySelector(".lightbox-prev");
+
+      let currentIndex = 0;
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = allImages[currentIndex].src;
+        lightbox.classList.add("active");
+      }
+      function showNext() {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        lightboxImg.src = allImages[currentIndex].src;
+      }
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        lightboxImg.src = allImages[currentIndex].src;
+      }
+      allImages.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          openLightbox(index);
+        });
+      });
+      closeBtn.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+      });
+      nextBtn.addEventListener("click", showNext);
+      prevBtn.addEventListener("click", showPrev);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) lightbox.classList.remove("active");
+      });
+      console.log("Artystyczna strona załadowana!");
+    });
+  </script>
 </body>
 </html>
