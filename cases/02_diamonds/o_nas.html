@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <!-- Ustawienie viewportu, wyłączenie skalowania przez użytkownika -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Ustawienia dla przeglądarek mobilnych -->
+  <meta name="theme-color" content="#1c1c1c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <title>O nas – Kryształy Kingi</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" 
+    rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs8v3moKnMOZP4BkpdqvZ6q/h1Gi1fuDHZgJsZ6Y0ToVd4F6QXy6z0sg96eQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Osadzony CSS -->
+  <style>
+    /* Reset i podstawowe style */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Link "Skip to content" – przydatny dla użytkowników mobilnych i czytników ekranu */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #fdbb2d;
+      color: #000;
+      padding: 8px 16px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Pasek nawigacyjny */
+    .navbar {
+      background: #1c1c1c;
+      padding: 15px 0;
+      border-bottom: 2px solid #fdbb2d;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-logo a {
+      color: #fdbb2d;
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-menu ul {
+      list-style: none;
+      display: flex;
+    }
+    .navbar-menu ul li {
+      margin-left: 20px;
+    }
+    .navbar-menu ul li a {
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .navbar-menu ul li a:hover,
+    .navbar-menu ul li a.active {
+      background: #fdbb2d;
+      color: #000;
+    }
+
+    /* Hamburger menu – większe przyciski dla dotyku */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+    .hamburger .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fdbb2d;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    /* Sekcja "O nas" – tło z efektem detektywistycznym */
+    .about-section {
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><filter id='f1' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' result='noise'/><feDiffuseLighting in='noise' lighting-color='gray' surfaceScale='2'><feDistantLight azimuth='45' elevation='55'/></feDiffuseLighting></filter><rect width='800' height='600' filter='url(%23f1)' /></svg>") no-repeat center center/cover;
+      padding: 60px 20px;
+      color: #fff;
+      position: relative;
+    }
+    .about-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    .about-section .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      color: #333;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .section-heading h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #1c1c1c;
+    }
+    .section-heading h2 i {
+      color: #fdbb2d;
+      margin-right: 10px;
+    }
+    .section-underline {
+      width: 80px;
+      height: 4px;
+      background: #fdbb2d;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    .about-content p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      text-align: justify;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .about-content p.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stopka */
+    .footer {
+      background: #1c1c1c;
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+    }
+    .footer p {
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+    .footer-social a {
+      color: #fdbb2d;
+      font-size: 1.8em;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .footer-social a:hover {
+      color: #fff;
+    }
+
+    /* Przycisk "Do góry" – powiększony dla łatwiejszego dotyku */
+    #scrollToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #fdbb2d;
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5em;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+    }
+    #scrollToTopBtn:hover {
+      background: #ffcc00;
+    }
+
+    /* Responsywność – optymalizacja dla urządzeń mobilnych */
+    @media (max-width: 768px) {
+      .navbar-container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #1c1c1c;
+        padding: 10px 0;
+      }
+      .navbar-menu.open {
+        display: flex;
+      }
+      .navbar-menu ul {
+        flex-direction: column;
+        width: 100%;
+      }
+      .navbar-menu ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .navbar-menu ul li a {
+        display: block;
+        padding: 10px;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .about-content p {
+        font-size: 1em;
+      }
+    }
+    @media (max-width: 480px) {
+      .navbar-logo a {
+        font-size: 1.5em;
+      }
+      .section-heading h2 {
+        font-size: 2em;
+      }
+      .about-section .container {
+        padding: 20px;
+      }
+    }
+  </style>
+
+  <!-- Dodatkowe meta tagi SEO -->
+  <meta name="description" content="O nas – Kryształy Kingi. Poznaj historię, misję oraz zespół projektu ujawniającego kulisy działań Kingi Szczepanek.">
+  <meta property="og:title" content="O nas – Kryształy Kingi">
+  <meta property="og:description" content="Poznaj historię, misję oraz zaangażowany zespół projektu ujawniającego kulisy działań Kingi Szczepanek.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://szczepanek-modelki.com/cases/02_diamonds/o_nas.html">
+  <meta property="og:image" content="og-o_nas.jpg">
+  <link rel="canonical" href="https://szczepanek-modelki.com/cases/02_diamonds/o_nas.html">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D7ZGTVW9Y0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D7ZGTVW9Y0');
+</script>
+
+<body>
+  <a href="#main" class="skip-link">Przejdź do treści</a>
+  
+  <!-- Pasek nawigacyjny -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <div class="navbar-logo">
+        <a href="index.html"><i class="fas fa-gem"></i> Kryształy Kingi</a>
+      </div>
+      <!-- Hamburger menu z obsługą ARIA -->
+      <div class="hamburger" aria-label="Otwórz menu" aria-expanded="false" role="button" tabindex="0">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <nav class="navbar-menu">
+        <ul>
+          <li><a class="active" href="o_nas.html">O nas</a></li>
+          <li><a href="dowody.html">Dowody</a></li>
+          <li><a href="polityka.html">Polityka Prywatności</a></li>
+          <li><a href="regulamin.html">Regulamin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Główna treść -->
+  <main id="main">
+    <!-- Sekcja "O nas" -->
+    <section class="about-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2><i class="fas fa-users"></i> O nas</h2>
+          <span class="section-underline"></span>
+        </div>
+        <div class="about-content">
+          <p>
+            Witaj na stronie <strong>"Kinga Szczepanek Criminal Cases"</strong> – kompleksowym projekcie śledczym, który ma na celu ujawnienie kulis działań pani Kingi Szczepanek oraz zorganizowanej grupy przestępczej, w której brała udział.
+          </p>
+          <p>
+            Nasz zespół zbiera, analizuje i publikuje oryginalne dokumenty, zrzuty ekranu oraz inne materiały dowodowe, umożliwiając każdemu wyrobienie własnej opinii na temat całej sytuacji.
+          </p>
+          <p>
+            Jesteśmy oddani idei jawności i przejrzystości informacji – tylko dzięki pełnej wiedzy możemy przeciwdziałać nadużyciom i dbać o dobro społeczne. Nasza inicjatywa skierowana jest do szerokiego grona odbiorców, w tym środowiska medycznego, mieszkańców Krakowa oraz globalnej społeczności domagającej się uczciwości i odpowiedzialności.
+          </p>
+          <p>
+            <strong>Dołącz do nas!</strong> Razem możemy zmienić rzeczywistość – podziel się swoimi spostrzeżeniami, komentuj i szerz prawdę!
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Stopka -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Kryształy Kingi – Wszelkie prawa zastrzeżone.</p>
+      <p class="disclaimer">
+        Treść publikacji ma charakter informacyjny i nie stanowi porady prawnej. Autor publikuje pod pseudonimem, dbając o ochronę swojej tożsamości.
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Przycisk "Do góry" -->
+  <button id="scrollToTopBtn" title="Do góry" aria-label="Do góry"><i class="fas fa-chevron-up"></i></button>
+  
+  <!-- Osadzony JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Pokaż przycisk "Do góry" po przewinięciu 100px
+      const scrollBtn = document.getElementById('scrollToTopBtn');
+      window.addEventListener('scroll', function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+          scrollBtn.style.display = 'block';
+        } else {
+          scrollBtn.style.display = 'none';
+        }
+      });
+      
+      // Płynne przewijanie do góry po kliknięciu przycisku
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
+      // Efekt pojawiania się treści – fadeIn przy przewijaniu
+      const faders = document.querySelectorAll('.about-content p');
+      const appearOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -50px 0px"
+      };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+      
+      // Obsługa menu hamburger
+      const hamburger = document.querySelector('.hamburger');
+      const navbarMenu = document.querySelector('.navbar-menu');
+      
+      hamburger.addEventListener('click', function() {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+        hamburger.setAttribute('aria-expanded', !expanded);
+        navbarMenu.classList.toggle('open');
+      });
+      
+      // Umożliwienie obsługi menu przy użyciu klawiatury
+      hamburger.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          hamburger.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
