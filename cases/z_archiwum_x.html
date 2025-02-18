@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Mobile-first viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+  <title>Studium przypadku: Kinga Szczepanek i historie narkotykowe</title>
+  <meta name="description" content="Poznaj wyczyny Kingi Szczepanek – studium przypadku oraz historie narkotykowe. Dowiedz się, jak działały kontrowersyjne procedery, kto był zaangażowany i jakie konsekwencje niosły te działania.">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Studium przypadku: Kinga Szczepanek i historie narkotykowe" />
+  <meta property="og:description" content="Poznaj wyczyny Kingi Szczepanek – studium przypadku oraz historie narkotykowe. Dowiedz się, jak działały kontrowersyjne procedery, kto był zaangażowany i jakie konsekwencje niosły te działania." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://szczepanek-modelki.com/cases/z_archiwum_x.html" />
+  <meta property="og:image" content="https://szczepanek-modelki.com/cases/images/hero-image.jpg" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7ZGTVW9Y0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D7ZGTVW9Y0');
+  </script>
+
+  <!-- Główny styl CSS (zintegrowany) – MOBILE FIRST + animacje hamburgera + lightbox -->
+  <style>
+    /*******************************************************
+     * RESET OGÓLNY + PŁYNNE PRZEWIJANIE
+     *******************************************************/
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f2f2f2;
+      overflow-x: hidden;
+
+      /* Płynne przewijanie dla linków kotwicznych */
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /*******************************************************
+     * STRUKTURA NAGŁÓWKA (STICKY + HAMBURGER)
+     *******************************************************/
+    header {
+      position: sticky;
+      top: 0;
+      background: #333;
+      z-index: 999;
+      padding: 0.5em 1em;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo a {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* HAMBURGER – trzy paski i ich animacje */
+    .hamburger {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .hamburger span {
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    /* Po otwarciu menu transformujemy paski w „X” */
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* NAV – domyślnie ukryte w mobile, rozwijane hamburgerem */
+    nav {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #444; /* ciemne tło dla listy */
+    }
+    nav ul {
+      list-style: none;
+    }
+    nav li {
+      border-top: 1px solid #555;
+    }
+    nav li:first-child {
+      border-top: none;
+    }
+    nav a {
+      display: block;
+      padding: 0.8em 1em;
+      color: #fff;
+      font-weight: 500;
+    }
+    nav a:hover {
+      background: #555;
+    }
+    nav.active {
+      max-height: 400px; 
+    }
+
+    /*******************************************************
+     * HERO SECTION (TŁO + OVERLAY)
+     *******************************************************/
+    .hero-section {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                  url("images/hero-image.jpg") no-repeat center center/cover;
+      text-align: center;
+      color: #fff;
+      padding: 3em 1em;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInHero 1s ease forwards;
+    }
+    .hero-content h1 {
+      font-size: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: bold;
+    }
+    .hero-content p {
+      font-size: 1em;
+      margin-bottom: 1em;
+      line-height: 1.4;
+    }
+    .hero-cta-btn {
+      display: inline-block;
+      background-color: #ffa500;
+      color: #000;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    .hero-cta-btn:hover {
+      background-color: #ffc04d;
+    }
+    @keyframes fadeInHero {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /*******************************************************
+     * FALA DIVIDER
+     *******************************************************/
+    .wave-divider {
+      position: relative;
+      height: 80px;
+      width: 100%;
+      background: #fff;
+    }
+    .wave-divider svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /*******************************************************
+     * CASE GALLERY SECTION
+     *******************************************************/
+    .case-gallery {
+      position: relative;
+      padding: 2em 1em;
+      text-align: center;
+      background: linear-gradient(135deg, #1f1f1f, #3b3b52);
+      background-size: 400% 400%;
+      animation: bgPan 15s ease infinite;
+      overflow: hidden;
+    }
+    .case-gallery::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('detective-pattern.png') repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    .gallery-heading {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2em;
+    }
+    .gallery-heading h2 {
+      font-size: 1.4em;
+      margin-bottom: 0.5em;
+      color: #fff;
+    }
+    .gallery-heading p {
+      font-size: 0.95em;
+      color: #ddd;
+      line-height: 1.3;
+    }
+    @keyframes bgPan {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* KARTY / GRID – mobile-first: 1 kolumna */
+    .cards-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5em;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      animation: fadeInGallery 1s ease forwards;
+    }
+    @keyframes fadeInGallery {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .card-image {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      cursor: pointer; /* Podkreślamy klikalność */
+    }
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.5em;
+      color: #fff;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .card-image:hover .card-overlay {
+      opacity: 1;
+    }
+    .card-overlay h3 {
+      font-size: 1em;
+      margin: 0.2em 0;
+    }
+    .card-content {
+      padding: 1em;
+      flex: 1;
+    }
+    .card-content p {
+      margin-bottom: 1em;
+      color: #555;
+      font-size: 0.95em;
+    }
+    .card-btn {
+      display: inline-block;
+      background-color: #ffd700;
+      color: #000;
+      padding: 0.5em 1em;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: 0.3s;
+      font-size: 0.9em;
+    }
+    .card-btn:hover {
+      background-color: #ffe34d;
+    }
+
+    /* SPECJALNY CASE */
+    .special-card-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .special-card {
+      border: 5px solid #ff00ff;
+      transform: scale(1.05);
+      margin: 2em 0;
+      max-width: 600px;
+      position: relative;
+    }
+    .special-card .card-overlay {
+      opacity: 1 !important;
+      transition: none;
+    }
+    .special-case {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 0.4em 0.6em;
+      border-radius: 6px;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+      animation: glitterPulse 2s infinite;
+      text-align: center;
+      line-height: 1.3;
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+    .special-case .main-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3em;
+    }
+    .special-case .subtitle {
+      font-size: 0.85em;
+      display: block;
+    }
+    @keyframes glitterPulse {
+      0% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+      }
+    }
+
+    /*******************************************************
+     * INFO SECTION (TEKST + TIMELINE)
+     *******************************************************/
+    .info-section {
+      display: flex;
+      flex-direction: column; /* mobile-first */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2em 1em;
+      gap: 2em;
+      background-color: #f2f2f2;
+    }
+    .info-left, .info-right {
+      flex: 1 1 100%;
+    }
+    .info-left h2 {
+      font-size: 1.3em;
+      margin-bottom: 1em;
+      font-weight: bold;
+      color: #333;
+    }
+    .info-left p {
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 1em;
+    }
+    .info-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .timeline {
+      position: relative;
+      padding: 2em 0;
+      width: 100%;
+      max-width: 500px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffd700 0%, #ff8800 100%);
+      border-radius: 2px;
+    }
+    .timeline-step {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 2em;
+    }
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-bullet {
+      position: absolute;
+      left: -42px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #ffd700;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #fff;
+    }
+    .timeline-step h4 {
+      font-size: 1em;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 0.3em;
+    }
+    .timeline-step p {
+      font-size: 0.9em;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 0.8em;
+    }
+
+    /*******************************************************
+     * STOPKA (FOOTER)
+     *******************************************************/
+    .site-footer {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 2em 1em;
+      gap: 1.5em;
+    }
+    .footer-col {
+      margin: 0.5em 0;
+    }
+    .footer-col h3 {
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+    .footer-col p {
+      font-size: 0.9em;
+      color: #ddd;
+      line-height: 1.4;
+      margin-bottom: 1em;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5em;
+    }
+    .footer-col ul li a {
+      color: #fff;
+      font-size: 0.9em;
+    }
+    .social-icons a {
+      margin-right: 0.5em;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+    }
+
+    /*******************************************************
+     * MEDIA QUERIES (TABLET + DESKTOP)
+     *******************************************************/
+    @media (min-width: 768px) {
+      .header-inner {
+        justify-content: flex-start;
+        gap: 2em;
+      }
+      .hamburger {
+        display: none; /* na większych ekranach ukrywamy hamburgera */
+      }
+      nav {
+        max-height: none; /* zawsze widoczne */
+        background: transparent;
+      }
+      nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      nav li {
+        border-top: none;
+      }
+      nav a {
+        padding: 0.5em 1em;
+      }
+      header {
+        padding: 0.5em 2em;
+      }
+
+      /* Rozkładamy karty w więcej kolumn */
+      .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+
+      /* Info-section obok timeline */
+      .info-section {
+        flex-direction: row;
+      }
+
+      /* Stopka w wierszach */
+      .site-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .footer-col {
+        flex: 1;
+        margin: 0.5em;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-content h1 {
+        font-size: 2em;
+      }
+      .gallery-heading h2 {
+        font-size: 1.8em;
+      }
+      .special-card {
+        transform: scale(1.2);
+      }
+    }
+
+    /*******************************************************
+     * LIGHTBOX – ZALETY: POWIĘKSZANIE OBRAZÓW
+     *******************************************************/
+    .lightbox {
+      display: none; /* ukrywamy domyślnie */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .lightbox.active {
+      display: flex; /* włączamy flex po otwarciu */
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      animation: fadeInLightbox 0.3s ease forwards;
+    }
+    .lightbox img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 3px solid #fff;
+      border-radius: 5px;
+    }
+    @keyframes fadeInLightbox {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    /* Przycisk zamknięcia */
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: #fff;
+      color: #333;
+      padding: 0.3em 0.6em;
+      font-weight: bold;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lightbox-close:hover {
+      background: #ddd;
+    }
+    /* Strzałki nawigacji (Prev/Next) */
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: #333;
+      padding: 0.3em 0.6em;
+      font-weight: bold;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: #ddd;
+    }
+    .lightbox-prev {
+      left: -50px;
+    }
+    .lightbox-next {
+      right: -50px;
+    }
+    @media (max-width: 480px) {
+      .lightbox-prev, .lightbox-next {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: -40px;
+        transform: none;
+        margin: 0 5px;
+      }
+      .lightbox-prev {
+        float: left;
+      }
+      .lightbox-next {
+        float: right;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER + HAMBURGER MENU -->
+  <header>
+    <div class="header-inner">
+      <!-- LOGO / NAZWA STRONY -->
+      <div class="header-logo">
+        <a href="https://szczepanek-modelki.com">Szczepanek Cases</a>
+      </div>
+      <!-- PRZYCISK HAMBURGER -->
+      <div class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- NAV – linki ukryte w mobile, rozwijane hamburgerem -->
+    <nav id="mobileNav">
+      <ul>
+        <li><a href="https://szczepanek-modelki.com">Strona główna</a></li>
+        <li><a href="04_audio/audio.html">Audio</a></li>
+        <li><a href="mailto:rafixks@interia.pl">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Odkryj wyczyny Kingi Szczepanek w krakowskim narkotykowym świecie</h1>
+      <p>Poznaj kontrowersyjne działania i metody, które miały miejsce w środowisku narkotykowym.</p>
+      <a href="04_audio/audio.html" class="hero-cta-btn">Odkryj więcej</a>
+    </div>
+  </section>
+
+  <!-- FALA - PRZEJŚCIE DO PIERWSZEJ GALERII CASE'ÓW -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#ffffff" fill-opacity="1" d="M0,256L60,234.7C120,213,240,171,360,176C480,181,600,235,720,266.7C840,299,960,309,1080,266.7C1200,224,1320,128,1380,80L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <!-- PIERWSZA GALERIA CASE'ÓW -->
+  <section class="case-gallery">
+    <div class="gallery-heading">
+      <h2>Narkotyczny Świat Kingi Szczepanek</h2>
+      <p>Odkryj prawdę, poznaj do czego zdolny jest lekarz w Polsce. Kinga Szczepanek w pełnej krasie.</p>
+    </div>
+    <div class="cards-container">
+      <!-- KARTA 1: SAMOCHODZIK -->
+      <article class="card">
+        <div class="card-image">
+          <img src="samochodzik.png" 
+               alt="Szybkie auto, szybkie dragi, jak szybka i łatwa prosta jest Kinga Szczepanek." 
+               loading="lazy" />
+          <div class="card-overlay">
+            <a href="01_samochodzik/index.html" class="card-btn">Odkryj</a>
+            <h3>Case 1: Szybki samochodzik, szybka i łatwa anestezjolog.</h3>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Odkrycie szemranej działalności – bolesny missclick dilera.</p>
+          <a href="01_samochodzik/index.html" class="card-btn">Odkryj</a>
+        </div>
+      </article>
+
+      <!-- KARTA 2: KRYSZTAŁY -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/gallery2.jpg" alt="Rozsypane kryształy i narkotyczne substancje" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case 2: Kryształy Kingi Szczepanek</h3>
+            <a href="02_diamonds/index.html" class="card-btn">Zgłoś naruszenia</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Kryształy, szmaragdy, diamenty czy metaamfetamina?</p>
+          <a href="02_diamonds/index.html" class="card-btn">Spójrz, posłuchaj</a>
+        </div>
+      </article>
+
+      <!-- KARTA 3: LA CRIMA DI SANGUE -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/case3_background.png" alt="Kinga Szczepanek i jej ekscesy w klubach Swingers - Lacrima Di Sangue Wrocław" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case 3: La Crima Di Sangue – przygody we Wrocławiu</h3>
+            <a href="03_lacrimadisangue/index.html" class="card-btn">Zgłoś naruszenia</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Narkotyki, alkohol i gwałty – czyli chleb powszedni Kingi Szczepanek.</p>
+          <a href="03_lacrimadisangue/index.html" class="card-btn">Poznaj szczegóły</a>
+        </div>
+      </article>
+
+      <!-- KARTA: AUDIO -->
+      <article class="card">
+        <div class="card-image">
+          <img src="audio.jpg" alt="Grafika symbolizująca audio – mikrofon i dźwiękowe fale" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case: Audio – Tajemnicze dźwięki</h3>
+            <a href="04_audio/audio.html" class="card-btn">Odkryj audio</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Posłuchaj nagrań odsłaniających brutalność i sekrety świata Kingi Szczepanek.</p>
+          <a href="04_audio/audio.html" class="card-btn">Posłuchaj szczegółów</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FALA - PRZEJŚCIE DO DRUGIEJ GALERII CASE'ÓW -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fff" fill-opacity="1" d="M0,192L80,186.7C160,181,320,171,480,160C640,149,800,139,960,165.3C1120,192,1280,256,1360,288L1440,320L1440,320L1360,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,80,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <!-- DRUGA GALERIA CASE'ÓW -->
+  <section class="case-gallery">
+    <div class="gallery-heading">
+      <h2>Kolejne przypadki: Szokujące fakty</h2>
+      <p>Poznaj ciąg dalszy bulwersujących wydarzeń</p>
+    </div>
+    <div class="cards-container">
+      <!-- SPECJALNA KARTA -->
+      <article class="special-card-wrapper">
+        <div class="card special-card">
+          <div class="card-image">
+            <img src="images/funny_kinga.jpg" alt="Karykaturalna grafika przedstawiająca Kingę Szczepanek" loading="lazy" />
+            <div class="card-overlay">
+              <h3 class="special-case">
+                <span class="main-title">50 TWARZY</span>
+                <span class="subtitle">KINGI SZCZEPANEK</span>
+              </h3>
+            </div>
+          </div>
+          <div class="card-content">
+            <a href="05_wyzwiska_kultura_osobista/index.html" class="card-btn">POZNAJ KINGĘ</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- KARTA: CASE 4,5,6,7 czerwca -->
+      <article class="card">
+        <div class="card-image">
+          <img src="4567czerwca.jpg" alt="Kinga Szczepanek w naturalnym środowisku ze spermą na wąsach" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case: 4,5,6,7 czerwca</h3>
+            <a href="4567czerwca/4567czerwca.html" class="card-btn">Zgłoś naruszenia</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Amfetamina w pracy, Dawid Dudzik i dilerka – poznaj kulisy procederu.</p>
+          <a href="4567czerwca/4567czerwca.html" class="card-btn">Zobacz dowody</a>
+        </div>
+      </article>
+
+      <!-- KARTA: CASE 6 – Zdemolowany samochód -->
+      <article class="card">
+        <div class="card-image">
+          <img src="images/zdemolowany_samochod.jpg" alt="Zdemolowany samochód z wulgarnymi napisami" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case 6: Zdemolowany Samochód</h3>
+            <a href="zdemolowane_auto/index.html" class="card-btn">Poznaj Kingę</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Poznaj szczegóły historii o wandalizmie i brutalnej agresji Kingi Szczepanek ze Skawiny.</p>
+          <a href="zdemolowane_auto/index.html" class="card-btn">Zobacz szczegóły</a>
+        </div>
+      </article>
+
+      <!-- NOWA KARTA: CASE - WŁAMANIA DO URZĄDZEŃ -->
+      <article class="card">
+        <div class="card-image">
+          <img src="obrzydlistwo.png" alt="Obrzydliwy obraz symbolizujący ohydę działań Kingi Szczepanek" loading="lazy" />
+          <div class="card-overlay">
+            <h3>Case: Włamania i inne wizytówki Kingi Szczepanek z POLSPEN</h3>
+            <a href="07_wlamania/index.html" class="card-btn">Rzuć na to okiem</a>
+          </div>
+        </div>
+        <div class="card-content">
+          <p>Dowody na włamania do urządzeń i kradzież danych – poznaj kulisy świata Kingi Szczepanek.</p>
+          <a href="07_wlamania/index.html" class="card-btn">Spójrz, jeśliś łaskaw</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FALA - PRZEJŚCIE DO SEKCJI INFORMACYJNEJ (TIMELINE) -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#f2f2f2" fill-opacity="1" d="M0,320L60,293.3C120,267,240,213,360,181.3C480,149,600,139,720,138.7C840,139,960,149,1080,154.7C1200,160,1320,160,1380,160L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+    </svg>
+  </div>
+
+  <!-- SEKCJA INFORMACYJNA: TEKST (LEWA) + TIMELINE (PRAWA) -->
+  <section class="info-section">
+    <div class="info-left">
+      <h2>Dlaczego te historie są warte uwagi?</h2>
+      <p>
+        Te historie to nie są tylko kolejne doniesienia – to brutalne ostrzeżenia o upadku systemu, który pozwala na patologiczne nadużycia. Każdy z tych przypadków demaskuje mechanizmy, które niszczą życie ludzi – od przypadków narkotykowych zagryzek, przez cyberprzestępczość, aż po nieetyczne działania w służbie zdrowia.
+      </p>
+      <p>
+        Ujawnianie tych mrocznych realiów nie tylko budzi oburzenie, ale i mobilizuje do działania – pokazuje, że walka o sprawiedliwość i odpowiedzialność to obowiązek nas wszystkich. Dzięki takim przypadkom możemy zrozumieć skalę problemu i pociągnąć odpowiedzialnych do odpowiedzi.
+      </p>
+    </div>
+    <div class="info-right">
+      <div class="timeline">
+        <!-- KROK 1 -->
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 1: Wykrycie nieprawidłowości</h4>
+          <p>Pierwsze sygnały o niebezpiecznej działalności i relacje świadków.</p>
+        </div>
+        <!-- KROK 2 -->
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 2: Zbieranie dowodów</h4>
+          <p>Dokumenty, nagrania, screenshoty – fakty wskazują, że sprawa jest poważna.</p>
+        </div>
+        <!-- KROK 3 -->
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 3: Publikacja materiałów</h4>
+          <p>Informacje trafiają na światło dzienne, umożliwiając ocenę skali naruszeń.</p>
+        </div>
+        <!-- KROK 4 -->
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 4: Reakcja opinii publicznej</h4>
+          <p>Rosnące oburzenie i wezwania do podjęcia działań.</p>
+        </div>
+        <!-- KROK 5 -->
+        <div class="timeline-step">
+          <div class="timeline-bullet"></div>
+          <h4>Krok 5: Dalsze śledztwo i konsekwencje</h4>
+          <p>Zbieranie kolejnych materiałów i działania organów ścigania.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPKA STRONY -->
+  <footer class="site-footer">
+    <div class="footer-col">
+      <h3>Narkotyki Kingi Szczepanek</h3>
+      <p>SZCZEPANEK CASES - OFICJALNE MATERIAŁY</p>
+    </div>
+    <div class="footer-col">
+      <ul>
+        <li><a href="02_diamonds/polityka.html">Polityka prywatności</a></li>
+        <li><a href="02_diamonds/regulamin.html">Regulamin</a></li>
+      </ul>
+    </div>
+    <div class="footer-col social-icons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://szczepanek-modelki.com" 
+         target="_blank" 
+         aria-label="Udostępnij na Facebooku">
+        <img src="images/facebook-icon.png" alt="Facebook icon" loading="lazy" />
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Sprawdź%20tę%20stronę:&url=https://szczepanek-modelki.com" 
+         target="_blank" 
+         aria-label="Udostępnij na Twitterze">
+        <img src="images/twitter-icon.png" alt="Twitter icon" loading="lazy" />
+      </a>
+      <a href="https://www.instagram.com/yourusername" 
+         target="_blank" 
+         aria-label="Odwiedź nas na Instagramie">
+        <img src="images/instagram-icon.png" alt="Instagram icon" loading="lazy" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- SKRYPT DO OBSŁUGI HAMBURGERA, LIGHTBOX itp. -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* HAMBURGER – otwieranie/zamykanie menu */
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileNav = document.getElementById("mobileNav");
+
+      hamburgerBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.toggle("open"); // animacja pasków
+        mobileNav.classList.toggle("active");  // rozwijanie menu
+      });
+
+      /* LIGHTBOX – zaawansowana galeria */
+      // 1. Zbieramy wszystkie obrazki w kartach:
+      const allImages = Array.from(document.querySelectorAll(".card-image img"));
+      // 2. Tworzymy lightbox (jego elementy znajdują się w HTML na końcu, ale tu dynamicznie nim zarządzamy).
+      const lightbox = document.createElement("div");
+      lightbox.classList.add("lightbox");
+      lightbox.innerHTML = `
+        <div class="lightbox-content">
+          <span class="lightbox-close">Zamknij</span>
+          <span class="lightbox-prev">&#9664;</span>
+          <span class="lightbox-next">&#9654;</span>
+          <img id="lightboxImg" src="" alt="podglad obrazu" />
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+
+      const lightboxImg = document.getElementById("lightboxImg");
+      const closeBtn = lightbox.querySelector(".lightbox-close");
+      const nextBtn = lightbox.querySelector(".lightbox-next");
+      const prevBtn = lightbox.querySelector(".lightbox-prev");
+
+      let currentIndex = 0;
+
+      // 3. Funkcja otwarcia lightboxa z danym indexem
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = allImages[currentIndex].src;
+        lightbox.classList.add("active");
+      }
+
+      // 4. Funkcje next/prev
+      function showNext() {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        lightboxImg.src = allImages[currentIndex].src;
+      }
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        lightboxImg.src = allImages[currentIndex].src;
+      }
+
+      // 5. Obsługa kliknięć w karty -> otwarcie lightboxa
+      allImages.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          openLightbox(index);
+        });
+      });
+
+      // 6. Zamykanie lightboxa
+      closeBtn.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+      });
+      // 7. Obsługa strzałek
+      nextBtn.addEventListener("click", showNext);
+      prevBtn.addEventListener("click", showPrev);
+
+      // Możesz dodać też zamykanie po kliknięciu w tło lightboxa:
+      lightbox.addEventListener("click", (e) => {
+        // Jeśli kliknięto w tło (poza obrazem i przyciskami)
+        if (e.target === lightbox) {
+          lightbox.classList.remove("active");
+        }
+      });
+
+      console.log("Strona z zaawansowaną galerią i hamburgerem załadowana.");
+    });
+  </script>
+</body>
+</html>
