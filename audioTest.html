@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naruszenia w Sektorze Medycznym - Manifesto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <title>Naruszenia w Sektorze Medycznym - Kompletny Przewodnik</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z0PT+4XU1H8ZLMJ+yVZ6LWkFWu+ScCqvUHdf3k7G6G0tbzTjTVwnyH4U5eJJVovND9eFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS for Sliders -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <style>
-        /* Resetowanie stylów */
+        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Ogólne style */
+        /* Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
+            background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
         }
@@ -31,7 +36,53 @@
             color: #0056b3;
         }
 
-        /* Nagłówek */
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(0, 123, 255, 0.9);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 123, 255, 1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        nav .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1em;
+        }
+
+        /* Header Section */
         header {
             background: url('https://images.unsplash.com/photo-1580281657528-1a82cd427d89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fG1lZGljYWx8ZW58MHx8fHwxNjkwMjUwNzI3&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
             color: #fff;
@@ -61,63 +112,34 @@
         }
 
         header h1 {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 3em;
             margin-bottom: 20px;
         }
 
         header p {
             font-size: 1.2em;
+            margin-bottom: 30px;
         }
 
-        /* Nawigacja */
-        nav {
-            position: fixed;
-            width: 100%;
-            background: rgba(0, 123, 255, 0.9);
-            padding: 10px 0;
-            z-index: 1000;
+        header .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            font-weight: 600;
             transition: background 0.3s ease;
         }
 
-        nav.scrolled {
-            background: rgba(0, 123, 255, 1);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        header .btn:hover {
+            background: #0056b3;
         }
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        nav .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            font-weight: 600;
-        }
-
-        /* Sekcje */
+        /* Sections */
         section {
             padding: 80px 20px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: auto;
         }
 
@@ -134,9 +156,21 @@
             color: #007BFF;
             margin-bottom: 40px;
             font-size: 2.5em;
+            position: relative;
         }
 
-        /* Manifesto */
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #007BFF;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Manifesto Section */
         .manifesto {
             background: #e9f7fe;
             padding: 40px;
@@ -148,15 +182,17 @@
         .manifesto h3 {
             margin-bottom: 20px;
             color: #0056b3;
+            font-size: 1.8em;
         }
 
-        /* Przykłady Naruszeń */
+        /* Examples Section */
         .examples ul {
             list-style: disc inside;
             margin-left: 20px;
+            font-size: 1.1em;
         }
 
-        /* Działania Organizacji */
+        /* Actions Section */
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -166,7 +202,7 @@
 
         .action-item {
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border: 1px solid #ddd;
             border-radius: 10px;
             width: calc(33.333% - 40px);
@@ -182,12 +218,18 @@
         .action-item h4 {
             margin-bottom: 15px;
             color: #007BFF;
+            font-size: 1.5em;
         }
 
-        /* Aktualności */
+        .action-item p {
+            font-size: 1em;
+            text-align: justify;
+        }
+
+        /* News Section */
         .news {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
@@ -208,9 +250,15 @@
         .news-item h4 {
             margin-bottom: 10px;
             color: #007BFF;
+            font-size: 1.3em;
         }
 
-        /* Zasoby Edukacyjne */
+        .news-item p {
+            font-size: 0.95em;
+            text-align: justify;
+        }
+
+        /* Resources Section */
         .resources {
             display: flex;
             flex-wrap: wrap;
@@ -245,9 +293,30 @@
         .resource-item h4 {
             margin-bottom: 10px;
             color: #007BFF;
+            font-size: 1.3em;
         }
 
-        /* Formularz Kontaktowy */
+        .resource-item p {
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .resource-item a {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+
+        .resource-item a:hover {
+            background: #0056b3;
+        }
+
+        /* Contact Section */
         .contact-form {
             background: #e9f7fe;
             padding: 40px;
@@ -263,6 +332,7 @@
         .contact-form label {
             margin-bottom: 5px;
             font-weight: 600;
+            font-size: 1em;
         }
 
         .contact-form input,
@@ -289,20 +359,36 @@
             background: #0056b3;
         }
 
-        /* Stopka */
+        /* Footer */
         footer {
             background: #001f3f;
             color: #fff;
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
         }
 
         footer a {
             color: #7FDBFF;
             margin: 0 10px;
+            font-size: 0.95em;
         }
 
-        /* Animacje */
+        footer .social-icons {
+            margin-top: 15px;
+        }
+
+        footer .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: #7FDBFF;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -314,8 +400,8 @@
             transform: translateY(0);
         }
 
-        /* Responsywność */
-        @media (max-width: 992px) {
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
             .action-item, .resource-item {
                 width: calc(50% - 40px);
             }
@@ -362,11 +448,51 @@
                 font-size: 1.5em;
             }
         }
+
+        /* Swiper Slider */
+        .swiper-container {
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .swiper-slide h4 {
+            margin-bottom: 10px;
+            color: #007BFF;
+            font-size: 1.3em;
+        }
+
+        .swiper-slide p {
+            font-size: 1em;
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Nawigacja -->
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
             <div class="logo">Naruszenia Medyczne</div>
@@ -381,34 +507,30 @@
         </div>
     </nav>
 
-    <!-- Nagłówek -->
+    <!-- Header -->
     <header>
         <div class="content">
             <h1>Naruszenia w Sektorze Medycznym</h1>
             <p>Tworzymy Świadomość, Działamy dla Zmiany</p>
+            <a href="#kontakt" class="btn"><i class="fas fa-envelope"></i> Skontaktuj się</a>
         </div>
     </header>
 
-    <!-- Manifesto -->
+    <!-- Manifesto Section -->
     <section id="manifesto" class="fade-in">
         <h2>Nasze Manifesto</h2>
         <div class="manifesto">
             <h3>Wspólna Misja</h3>
             <p>
-                W obliczu licznych naruszeń w sektorze medycznym, stoimy wszyscy razem, aby
-                walczyć o prawa pacjentów, etykę w opiece zdrowotnej oraz transparentność działań.
-                Naszym celem jest zapewnienie, że każdy pacjent otrzyma należytą opiekę, a wszelkie
-                uchybienia będą odpowiednio karane.
+                W obliczu licznych naruszeń w sektorze medycznym, stoimy wszyscy razem, aby walczyć o prawa pacjentów, etykę w opiece zdrowotnej oraz transparentność działań. Naszym celem jest zapewnienie, że każdy pacjent otrzyma należytą opiekę, a wszelkie uchybienia będą odpowiednio karane.
             </p>
             <p>
-                Wierzymy w sprawiedliwość, równość i dostęp do wysokiej jakości opieki zdrowotnej dla wszystkich.
-                Poprzez edukację, wsparcie prawne i kampanie społeczne dążymy do tworzenia bezpieczniejszego
-                i bardziej etycznego środowiska medycznego.
+                Wierzymy w sprawiedliwość, równość i dostęp do wysokiej jakości opieki zdrowotnej dla wszystkich. Poprzez edukację, wsparcie prawne i kampanie społeczne dążymy do tworzenia bezpieczniejszego i bardziej etycznego środowiska medycznego.
             </p>
         </div>
     </section>
 
-    <!-- Przykłady Naruszeń -->
+    <!-- Examples Section -->
     <section id="przyklady" class="fade-in">
         <h2>Przykłady Naruszeń</h2>
         <div class="examples">
@@ -428,38 +550,38 @@
         </div>
     </section>
 
-    <!-- Działania Organizacji -->
+    <!-- Actions Section -->
     <section id="dzialania" class="fade-in">
         <h2>Nasze Działania</h2>
         <div class="actions">
             <div class="action-item">
-                <h4>Edukacja i Szkolenia</h4>
+                <h4><i class="fas fa-chalkboard-teacher"></i> Edukacja i Szkolenia</h4>
                 <p>Organizujemy warsztaty i seminaria dla pacjentów oraz personelu medycznego, aby zwiększyć świadomość na temat praw pacjenta i etyki w medycynie.</p>
             </div>
             <div class="action-item">
-                <h4>Wsparcie Prawne</h4>
+                <h4><i class="fas fa-gavel"></i> Wsparcie Prawne</h4>
                 <p>Oferujemy bezpłatne porady prawne dla osób, które doświadczyły naruszeń w sektorze medycznym, pomagając im dochodzić swoich praw.</p>
             </div>
             <div class="action-item">
-                <h4>Kampanie Społeczne</h4>
+                <h4><i class="fas fa-bullhorn"></i> Kampanie Społeczne</h4>
                 <p>Prowadzimy kampanie informacyjne mające na celu zwiększenie transparentności działań placówek medycznych oraz promowanie etycznych standardów.</p>
             </div>
             <div class="action-item">
-                <h4>Monitorowanie i Audyty</h4>
+                <h4><i class="fas fa-search"></i> Monitorowanie i Audyty</h4>
                 <p>Przeprowadzamy niezależne audyty placówek medycznych, aby identyfikować potencjalne naruszenia i wspierać placówki w wdrażaniu najlepszych praktyk.</p>
             </div>
             <div class="action-item">
-                <h4>Badania i Publikacje</h4>
+                <h4><i class="fas fa-book"></i> Badania i Publikacje</h4>
                 <p>Inwestujemy w badania naukowe dotyczące standardów opieki medycznej oraz publikujemy raporty na temat aktualnych problemów i trendów.</p>
             </div>
             <div class="action-item">
-                <h4>Wsparcie Psychologiczne</h4>
+                <h4><i class="fas fa-headset"></i> Wsparcie Psychologiczne</h4>
                 <p>Zapewniamy dostęp do wsparcia psychologicznego dla pacjentów i rodzin, którzy doświadczyli naruszeń w opiece zdrowotnej.</p>
             </div>
         </div>
     </section>
 
-    <!-- Aktualności -->
+    <!-- News Section -->
     <section id="aktualnosci" class="fade-in">
         <h2>Aktualności</h2>
         <div class="news">
@@ -475,10 +597,22 @@
                 <h4>Wyniki Badania nad Etyką w Medycynie</h4>
                 <p>Publikacja najnowszych wyników badań dotyczących przestrzegania standardów etycznych w placówkach zdrowotnych.</p>
             </div>
+            <div class="news-item">
+                <h4>Nowa Platforma Online do Zgłaszania Naruszeń</h4>
+                <p>Uruchomienie platformy umożliwiającej pacjentom anonimowe zgłaszanie naruszeń w opiece zdrowotnej.</p>
+            </div>
+            <div class="news-item">
+                <h4>Wsparcie dla Zdrowia Psychicznego Personelu Medycznego</h4>
+                <p>Wprowadzenie programów wsparcia psychologicznego dla personelu medycznego w związku z pandemią.</p>
+            </div>
+            <div class="news-item">
+                <h4>Partnerstwo z Międzynarodowymi Organizacjami Medycznymi</h4>
+                <p>Rozszerzenie współpracy z międzynarodowymi organizacjami w celu wymiany wiedzy i najlepszych praktyk.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Zasoby Edukacyjne -->
+    <!-- Resources Section -->
     <section id="zasoby" class="fade-in">
         <h2>Zasoby Edukacyjne</h2>
         <div class="resources">
@@ -486,24 +620,81 @@
                 <img src="https://via.placeholder.com/300x150" alt="E-book">
                 <h4>E-book: Prawa Pacjenta</h4>
                 <p>Pobierz nasz darmowy e-book i dowiedz się więcej o swoich prawach w systemie opieki zdrowotnej.</p>
-                <a href="#">Pobierz</a>
+                <a href="#"><i class="fas fa-download"></i> Pobierz</a>
             </div>
             <div class="resource-item">
                 <img src="https://via.placeholder.com/300x150" alt="Webinar">
                 <h4>Webinar: Etyka w Medycynie</h4>
                 <p>Dołącz do naszego webinaru, aby dowiedzieć się więcej o etycznych standardach w opiece zdrowotnej.</p>
-                <a href="#">Zapisz się</a>
+                <a href="#"><i class="fas fa-calendar-alt"></i> Zapisz się</a>
             </div>
             <div class="resource-item">
                 <img src="https://via.placeholder.com/300x150" alt="Raport">
                 <h4>Raport: Transparentność w Opiece Zdrowotnej</h4>
                 <p>Przeczytaj nasz najnowszy raport na temat transparentności działań placówek medycznych.</p>
-                <a href="#">Czytaj</a>
+                <a href="#"><i class="fas fa-file-alt"></i> Czytaj</a>
+            </div>
+            <div class="resource-item">
+                <img src="https://via.placeholder.com/300x150" alt="Infografika">
+                <h4>Infografika: Proces Zgłaszania Naruszeń</h4>
+                <p>Zapoznaj się z naszym przewodnikiem wizualnym dotyczącym zgłaszania naruszeń w sektorze medycznym.</p>
+                <a href="#"><i class="fas fa-chart-pie"></i> Zobacz</a>
+            </div>
+            <div class="resource-item">
+                <img src="https://via.placeholder.com/300x150" alt="Podcast">
+                <h4>Podcast: Historia Pacjenta</h4>
+                <p>Posłuchaj historii pacjentów, którzy doświadczyli naruszeń w opiece zdrowotnej i jak sobie z nimi poradzili.</p>
+                <a href="#"><i class="fas fa-podcast"></i> Posłuchaj</a>
+            </div>
+            <div class="resource-item">
+                <img src="https://via.placeholder.com/300x150" alt="Video">
+                <h4>Video: Prawa Pacjenta w Praktyce</h4>
+                <p>Obejrzyj nasze wideo instruktażowe na temat praw pacjenta i jak je egzekwować.</p>
+                <a href="#"><i class="fas fa-play-circle"></i> Obejrzyj</a>
             </div>
         </div>
     </section>
 
-    <!-- Formularz Kontaktowy -->
+    <!-- Testimonials Slider -->
+    <section id="opinie" class="fade-in">
+        <h2>Opinie</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/100" alt="Opinia 1" style="border-radius: 50%; margin-bottom: 15px;">
+                    <h4>Anna Kowalska</h4>
+                    <p>"Dzięki tej organizacji udało mi się skutecznie zgłosić naruszenie w mojej placówce zdrowotnej. Profesjonalizm na najwyższym poziomie."</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/100" alt="Opinia 2" style="border-radius: 50%; margin-bottom: 15px;">
+                    <h4>Piotr Nowak</h4>
+                    <p>"Wsparcie prawne i psychologiczne, które otrzymałem, było nieocenione. Polecam każdemu, kto doświadczył podobnych problemów."</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/100" alt="Opinia 3" style="border-radius: 50%; margin-bottom: 15px;">
+                    <h4>Katarzyna Zielińska</h4>
+                    <p>"Edukacyjne warsztaty i seminaria pomogły mi lepiej zrozumieć moje prawa jako pacjenta. Dziękuję za zaangażowanie."</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/100" alt="Opinia 4" style="border-radius: 50%; margin-bottom: 15px;">
+                    <h4>Marcin Wiśniewski</h4>
+                    <p>"Kampanie społeczne zwiększyły świadomość na temat naruszeń w opiece zdrowotnej. To ważny krok w kierunku zmian."</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/100" alt="Opinia 5" style="border-radius: 50%; margin-bottom: 15px;">
+                    <h4>Elżbieta Lewandowska</h4>
+                    <p>"Profesjonalne audyty i monitorowanie działań placówek medycznych pomagają w utrzymaniu wysokich standardów opieki."</p>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="kontakt" class="fade-in">
         <h2>Skontaktuj się z Nami</h2>
         <div class="contact-form">
@@ -514,26 +705,37 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
+                <label for="subject">Temat:</label>
+                <input type="text" id="subject" name="subject" required>
+
                 <label for="message">Wiadomość:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">Wyślij</button>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Wyślij</button>
             </form>
         </div>
     </section>
 
-    <!-- Stopka -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Naruszenia Medyczne. Wszystkie prawa zastrzeżone.</p>
         <p>
             <a href="#">Polityka Prywatności</a> | 
             <a href="#">Regulamin</a>
         </p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- JavaScript -->
     <script>
-        // Nawigacja - zmiana tła po scrollu
+        // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -543,7 +745,7 @@
             }
         });
 
-        // Animacje - fade in sekcji po scrollu
+        // Fade-In Animation on Scroll
         const faders = document.querySelectorAll('.fade-in');
 
         const appearOptions = {
@@ -551,10 +753,7 @@
             rootMargin: "0px 0px -50px 0px"
         };
 
-        const appearOnScroll = new IntersectionObserver(function(
-            entries,
-            appearOnScroll
-        ) {
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
                     return;
@@ -563,17 +762,55 @@
                     appearOnScroll.unobserve(entry.target);
                 }
             });
-        },
-        appearOptions);
+        }, appearOptions);
 
         faders.forEach(fader => {
             appearOnScroll.observe(fader);
         });
 
-        // Formularz kontaktowy - prosty alert po wysłaniu
+        // Swiper Slider Initialization
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                1200: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                480: {
+                    slidesPerView: 1,
+                },
+            }
+        });
+
+        // Contact Form Submission
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            // Simple validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if(name === '' || email === '' || subject === '' || message === '') {
+                alert('Proszę wypełnić wszystkie pola.');
+                return;
+            }
+
+            // Simulate form submission
             alert('Dziękujemy za kontakt! Skontaktujemy się z Tobą wkrótce.');
             contactForm.reset();
         });
