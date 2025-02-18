@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case 07: Włamania i nielegalny dostęp do prywatnych danych</title>
+  <meta name="description" content="Przekonujące dowody włamań do urządzeń oraz nielegalnego dostępu do prywatnych danych. Zobacz, jak cyberprzestępcy manipulują informacjami i dołącz do walki o bezpieczeństwo online!">
+  <meta name="keywords" content="włamania, cyberprzestępczość, hacking, dane, screenshoty, dowody, nielegalny dostęp">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Case 07: Włamania i nielegalny dostęp do prywatnych danych">
+  <meta property="og:description" content="Przekonujące dowody włamań do urządzeń oraz nielegalnego dostępu do danych – sprawdź materiały i weź udział w walce o bezpieczeństwo w sieci.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://szczepanek-modelki.com/07_wlamania/index.html">
+  <meta property="og:image" content="https://szczepanek-modelki.com/07_wlamania/hacker_background.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case 07: Włamania i nielegalny dostęp do prywatnych danych">
+  <meta name="twitter:description" content="Dowody włamań, screenshoty i logi potwierdzające nieautoryzowany dostęp do danych. Dołącz do dyskusji o bezpieczeństwie online!">
+  <meta name="twitter:image" content="https://szczepanek-modelki.com/07_wlamania/hacker_background.jpg">
+  
+  <!-- Zintegrowany styl CSS -->
+  <style>
+    /* RESET */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* HEADER */
+    header {
+      background: #333;
+      padding: 1em;
+    }
+    header nav {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+    }
+    header nav a {
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    /* HERO SECTION */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url("images/hacker_background.jpg") no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 1em;
+    }
+    .hero-content h1 {
+      font-size: 2.8em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+    .hero-content p {
+      font-size: 1.2em;
+      margin-bottom: 1em;
+    }
+    .hero-cta-btn {
+      display: inline-block;
+      background-color: #ffa500;
+      color: #000;
+      padding: 0.8em 1.2em;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    .hero-cta-btn:hover {
+      background-color: #ffc04d;
+    }
+    
+    /* INFO SECTION: dowody i timeline */
+    .info-section {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 2em 1em;
+      gap: 2em;
+      background-color: #fff;
+    }
+    .info-left, .info-right {
+      flex: 1 1 400px;
+    }
+    .info-left h2 {
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
+    .info-left p, .info-left ul {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 1em;
+    }
+    .info-left ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .timeline {
+      position: relative;
+      padding: 2em 0;
+      width: 100%;
+      max-width: 500px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffd700, #ff8800);
+      border-radius: 2px;
+    }
+    .timeline-step {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 2em;
+    }
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-step h4 {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.3em;
+    }
+    .timeline-step p {
+      font-size: 0.95em;
+      color: #666;
+      line-height: 1.5;
+    }
+    .timeline-bullet {
+      position: absolute;
+      left: -42px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: #ffd700;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #fff;
+    }
+    
+    /* GALERIA DOWODÓW */
+    .gallery {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 1em;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5em;
+    }
+    .gallery-item {
+      background-color: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer; /* Dodany kursor wskazujący, że obrazek jest klikalny */
+    }
+    .gallery-item .item-content {
+      padding: 1em;
+    }
+    .gallery-item .item-content h3 {
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
+    .gallery-item .item-content p {
+      font-size: 0.95em;
+      color: #555;
+    }
+    
+    /* SEKCJA UDOSTĘPNIANIA */
+    .share-section {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 1em;
+      text-align: center;
+    }
+    .share-section h3 {
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
+    .share-buttons a {
+      display: inline-block;
+      margin: 0 0.5em;
+      padding: 0.5em 1em;
+      background-color: #333;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    .share-buttons a:hover {
+      background-color: #555;
+    }
+    
+    /* STOPKA */
+    footer {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 2em 1em;
+    }
+    .footer-col {
+      flex: 1 1 200px;
+      margin: 0.5em;
+    }
+    .footer-col h3 {
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+    }
+    .footer-col p {
+      font-size: 0.9em;
+      line-height: 1.4;
+      color: #ddd;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.5em;
+    }
+    .footer-col ul li a {
+      color: #fff;
+      font-size: 0.9em;
+    }
+    .social-icons a {
+      margin-right: 0.5em;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+    }
+    
+    /* MODAL do powiększania obrazów */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      animation: zoomIn 0.3s;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); }
+      to { transform: scale(1); }
+    }
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    /* RESPONSYWNOŚĆ */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2em;
+      }
+      .hero-content p {
+        font-size: 1em;
+      }
+      .info-section {
+        flex-direction: column;
+      }
+      .timeline::before {
+        left: 10px;
+      }
+      .timeline-step {
+        margin-left: 40px;
+      }
+      .timeline-bullet {
+        left: -32px;
+      }
+    }
+  </style>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7ZGTVW9Y0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-D7ZGTVW9Y0');
+  </script>
+</head>
+<body>
+  <!-- HEADER z głównym menu -->
+  <header>
+    <nav>
+      <a href="https://szczepanek-modelki.com">Strona główna</a> |
+      <a href="mailto:rafixks@interia.pl">Kontakt</a> |
+      <a href="https://szczepanek-modelki.com/07_wlamania/index.html">Włamania</a>
+    </nav>
+  </header>
+  
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Case 07: Włamania i nielegalny dostęp do prywatnych danych</h1>
+        <p>
+          Przekonujące dowody włamań do urządzeń i kradzieży danych – dołącz do walki o bezpieczeństwo online!
+        </p>
+        <a href="#materials" class="hero-cta-btn">Zobacz materiały</a>
+      </div>
+    </section>
+    
+    <!-- INFO SECTION: Dowody i analiza -->
+    <section id="materials" class="info-section">
+      <div class="info-left">
+        <h2>Dowody i materiały</h2>
+        <p>
+          W tej sekcji prezentujemy zgromadzone dowody dotyczące włamań do urządzeń oraz nielegalnego dostępu do prywatnych danych. Nasze materiały obejmują:
+        </p>
+        <ul>
+          <li>Screenshoty włamań na konta Tinder – zmienione hasła i przechwycone dane</li>
+          <li>Dowody włamania do skrzynek e-mail – logi systemowe i raporty</li>
+          <li>Ataki na konta społecznościowe: Facebook i WhatsApp</li>
+          <li>Analizy techniczne potwierdzające działalność cyberprzestępców</li>
+        </ul>
+      </div>
+      <div class="info-right">
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="timeline-bullet"></div>
+            <h4>Krok 1: Wykrycie incydentu</h4>
+            <p>Pierwsze alerty o nieautoryzowanym dostępie do systemów.</p>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-bullet"></div>
+            <h4>Krok 2: Analiza techniczna</h4>
+            <p>Specjaliści analizują logi, ślady cyfrowe i systemowe dane.</p>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-bullet"></div>
+            <h4>Krok 3: Zbieranie dowodów</h4>
+            <p>Dokumentacja – screenshoty, nagrania i raporty z włamań.</p>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-bullet"></div>
+            <h4>Krok 4: Publikacja materiałów</h4>
+            <p>Upublicznienie dowodów, by zmobilizować opinię publiczną.</p>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-bullet"></div>
+            <h4>Krok 5: Reakcja społeczna</h4>
+            <p>Wzrost świadomości i wezwania do podjęcia działań.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- GALERIA DOWODÓW -->
+    <section class="gallery">
+      <article class="gallery-item">
+        <img src="wlam_email.jpg" alt="Screenshot włamania do konta email" loading="lazy">
+        <div class="item-content">
+          <h3>Email Hack</h3>
+          <p>Dowody zmienionych haseł i przechwyconych danych oraz chwalenie się swoimi koneksjami - "ja mogę wszystko, mnie nie wywalą, zasiadam w Izbie Lekarskiej"</p>
+        </div>
+      </article>
+      <article class="gallery-item">
+        <img src="medikinet.jpg" alt="Dowody przepisywania sobie Medikinet" loading="lazy">
+        <div class="item-content">
+          <h3>Nielegalne recepty</h3>
+          <p>Wypisywanie bezprawne recept na środki grupy IIP, które tylko psychiatra może zalecić. Pani Kinga robiła sobie z tych leków krechy.</p>
+        </div>
+      </article>
+      <article class="gallery-item">
+        <img src="fentanyl.jpg" alt="Groźby fentanylem" loading="lazy">
+        <div class="item-content">
+          <h3>Groźby takiego kalibru.</h3>
+          <p>Pani doktor Kinga Szczepanek grozi potraktowaniem fentanylem.</p>
+        </div>
+      </article>
+      <article class="gallery-item">
+        <img src="xanax.jpg" alt="Przepisywanie dilerom Xanax" loading="lazy">
+        <div class="item-content">
+          <h3>Xanax dla dilerów</h3>
+          <p>Dowody przepisywania przez Kingę Szczepanek Xanaxu dla swoich dilerów i bulwers – nie mają materiału.</p>
+        </div>
+      </article>
+      <article class="gallery-item">
+        <img src="konto.jpg" alt="Włamanie na konto bankowe" loading="lazy">
+        <div class="item-content">
+          <h3>Dostęp do konta bankowego</h3>
+          <p>Kinga Szczepanek włamała się na moje konto bankowe i z pełną nonszalancją się tym chwali.</p>
+        </div>
+      </article>
+      <article class="gallery-item">
+        <img src="mozeszzginac.jpg" alt="Ja cię tak bardzo kocham, ale możesz zginąć jak nie będziesz posłuszny" loading="lazy">
+        <div class="item-content">
+          <h3>Miłość psychopaty</h3>
+          <p>Kinga kocha. Ale jak nie będę posłuszny, to w każdej chwili mogę zginąć.</p>
+        </div>
+      </article>
+      <article class="gallery-item">
+        <img src="chamstwofetlife.jpg" alt="Pisanie obelżywych, fałszywych informacji na mój temat" loading="lazy">
+        <div class="item-content">
+          <h3>Szerzenie obelżywych dezinformacji</h3>
+          <p>Kinga Szczepanek pisze w moim imieniu do organizatorów imprez z Fetlife – handluje narkotykami i obraża mnie, podając fałszywe informacje, co ma na celu moją dyskredytację. Robi to przy pomocy Szymona z Fetlife, Dawida Dudzika z Poznachowic Dolnych, Szymona Wasilewskiego z 1. batalionu powietrzno-desantowego oraz Huberta ze Warszawy. To kółeczko wzajemnej adoracji.</p>
+        </div>
+      </article>
+    </section>
+    
+    <!-- SEKCJA UDOSTĘPNIANIA -->
+    <section class="share-section">
+      <h3>Podziel się tą stroną!</h3>
+      <div class="share-buttons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://szczepanek-modelki.com/07_wlamania/index.html" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=https://szczepanek-modelki.com/07_wlamania/index.html&text=Case%2007:%20Włamania%20i%20nielegalny%20dostęp%20do%20prywatnych%20danych" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="mailto:?subject=Case%2007:%20Włamania&body=Sprawdź%20tę%20stronę:%20https://szczepanek-modelki.com/07_wlamania/index.html" target="_blank" rel="noopener noreferrer">Email</a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- MODAL do powiększania obrazów -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage" src="" alt="Powiększony obraz">
+  </div>
+  
+  <!-- STOPKA -->
+  <footer>
+    <div class="footer-col">
+      <h3>Narkotyki Kingi Szczepanek</h3>
+      <p>SZCZEPANEK CASES - OFICJALNE MATERIAŁY</p>
+    </div>
+    <div class="footer-col">
+      <ul>
+        <li><a href="polityka.html">Polityka prywatności</a></li>
+        <li><a href="regulamin.html">Regulamin</a></li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script>
+    // Skrypt obsługujący modal do powiększania obrazów
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log("Strona Case 07 'Włamania' została załadowana. Gotowy do działania!");
+      
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImage");
+      const closeBtn = document.querySelector(".close");
+      const galleryImages = document.querySelectorAll(".gallery-item img");
+
+      galleryImages.forEach(img => {
+        img.addEventListener("click", function() {
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+        });
+      });
+
+      // Zamykanie modala po kliknięciu przycisku zamykania lub poza obrazem
+      closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+      });
+      modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
